@@ -14,31 +14,13 @@
     ...mapState([ 'num']),
     },
     created(){
-      // this.getList();
     },
     methods:{
       add(){
         this.num=this.num+10
       },
       getList(){
-        axios.post('http://10.101.1.193:10087/api/ningBoData/postTest',{
-          beginDate:"20200901",
-          busiType:"01",
-          txType:"104",
-          type:"2"
-        })
-        .then(res=>{
-          console.log(res)
-        })
-        .catch(err=>{
-          console.log(err)
-        })
-        axios.post('http://10.101.1.193:10087/api/ningBoData/postTest',{
-          beginDate:"20200901",
-          busiType:"01",
-          txType:"103",
-          type:"2"
-        })
+        axios.post('https://szzm.hhtz.gov.cn:10087/api/electronPort/realTimetradeVolume')
         .then(res=>{
           console.log(res)
         })

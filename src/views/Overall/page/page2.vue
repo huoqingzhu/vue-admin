@@ -16,28 +16,3 @@
 </el-dialog>
 </template>
 
-<script>
-  import { defineComponent, ref } from 'vue';
-  import { ElMessageBox } from 'element-plus';
-
-  export default defineComponent({
-    setup() {
-      const dialogVisible = ref(false);
-      
-      const handleClose = (done) => {
-        ElMessageBox
-          .confirm('确认关闭？')
-          .then((_) => {
-            done();
-          })
-          .catch((_) => {
-            // catch
-          });
-      };
-      return {
-        dialogVisible,
-        handleClose,
-      };
-    },
-  });
-</script>
