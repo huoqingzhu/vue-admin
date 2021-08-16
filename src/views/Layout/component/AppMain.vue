@@ -1,22 +1,20 @@
 <template>
   <div :class="$store.getters['app/className']">
     <Navbar  />
-    <router-view>
-    </router-view>
+    <router-view
+        v-slot="{ Component }"
+      >
+        <keep-alive :exclude="exclude">
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
   </div>
 </template>
-<script lang="ts">
-import { defineComponent,computed } from "vue";
+<script lang="ts" setup>
 import Navbar from "./Navbar/index.vue"
-export default defineComponent({
-  components:{
-    Navbar
-  },
-  computed: {
-  // 使用对象展开运算符将 getter 混入 computed 对象中
-  }
-  
-});
+import {routerList} from "@/router/index"
+const exclude=routerList.filter(item=>!item.meta.keepAlive).map(item=>item.name)
+console.log(exclude)
 </script>
 <style lang="scss" scoped>
 .main{

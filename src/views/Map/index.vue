@@ -3,25 +3,12 @@
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent, onMounted, ref } from 'vue';
+  import { defineComponent, onMounted, } from 'vue';
   import { mapState } from 'vuex';
   import {bounds} from './map'
   export default defineComponent({
-    computed: {
-    ...mapState([ 'num']),
-    },
-    created(){
-      this.getList();
-    },
-    methods:{
-      add(){
-        this.num=this.num+10
-      },
-      getList(){
-      }
-    },
+    name:"Map",
     setup(){
-      
       const init=()=>{
         //@ts-ignore
         const map = new AMap.Map('mapContainer', {
@@ -32,7 +19,6 @@
         })
          //@ts-ignore
         const path=bounds.map(i => new AMap.LngLat(i[0], i[1]))
-        console.log(path);
         //@ts-ignore
         const polygon = new AMap.Polygon({
           

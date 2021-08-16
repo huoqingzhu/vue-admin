@@ -3,9 +3,9 @@ export default    {
   name: "Holographic",
   sort:3,
   meta: {
-    title: "全息台",
+    title: "图表",
     keepAlive: true,
-    iocn: "icon-React",
+    iocn: "icon-tubiao",
   },
   component: () => import("@/views/Holographic/index.vue"),
 }

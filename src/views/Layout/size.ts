@@ -11,9 +11,11 @@ export default ()=>{
       if(document.body.clientWidth < 1025){
         store.commit("app/changeDevice",device.move);
         store.commit("app/changeShow",false);
+        store.state.app.isCollapse=false;
       }else{
         store.commit("app/changeDevice",device.desktop);
         store.commit("app/changeShow",true);
+        
       }
       
   }

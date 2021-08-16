@@ -3,9 +3,9 @@ export default    {
   name: "Device",
   sort:1,
   meta: {
-    title: "设备全息",
+    title: "动画",
     keepAlive: true,
-    iocn: "icon-React",
+    iocn: "icon-bim_donghua",
   },
-  component: () => import("@/views/Main/index.vue"),
+  component: () => import("@/views/Device/index.vue"),
 }

@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h1>你好!</h1>
+      <BasicTree :tree-data="basicData" />
     </div>
 </template>
 <script lang="ts">
@@ -15,7 +15,8 @@ export default defineComponent({
     const state=reactive({
       basicData:[
         {id:1,name:'层级1'},
-        {id:2,name:'层级2',children:[
+        {id:2,name:'层级2',
+        children:[
           {id:3,name:'层级2子树'}
         ]},
         {id:4,name:'层级3',children:[

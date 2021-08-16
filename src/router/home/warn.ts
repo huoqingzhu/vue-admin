@@ -1,11 +1,11 @@
 export default    {
-  path: "/warn",
-  name: "Warn",
+  path: "/map",
+  name: "Map",
   sort:2,
   meta: {
     title: "地图",
     keepAlive: true,
-    iocn: "icon-React",
+    iocn: "icon-ditu",
   },
-  component: () => import("@/views/Warn/index.vue"),
+  component: () => import("@/views/Map/index.vue"),
 }

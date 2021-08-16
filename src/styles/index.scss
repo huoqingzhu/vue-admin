@@ -1,5 +1,5 @@
 @import "./mixin.scss";
-
+@import "./element-ui.scss";
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
@@ -51,7 +51,6 @@ div:focus {
   align-items: center;
 }
 .sidebar-container {
-  // transition: width 0.28s;
   width: 200px;
   height: 100%;
   position: fixed;

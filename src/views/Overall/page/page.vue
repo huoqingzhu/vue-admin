@@ -14,7 +14,7 @@
     ...mapState([ 'num']),
     },
     created(){
-      this.getList();
+      // this.getList();
     },
     methods:{
       add(){
