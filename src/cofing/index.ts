@@ -1,7 +1,12 @@
+const dev=import.meta.env.DEV
 /**
  * svg线上地址
  */
 export const IconUrl="//at.alicdn.com/t/font_2666006_43j1zma9eev.js"
+/** 
+ * 配置url路径
+ */
+export const url=dev?'http://localhost:8888':window.location.origin;
 export const variables={
   menuText: "#bfcbd9",
   menuActiveText: '#409eff',
