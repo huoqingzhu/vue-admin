@@ -1,4 +1,4 @@
-import { type } from "os";
+
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 const modules = import.meta.globEager('./home/*.ts')
 export const routerList = Object.values(modules).map((item:any)=>item.default).sort((a,b)=>a.sort-b.sort);

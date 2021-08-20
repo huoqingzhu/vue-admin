@@ -9,7 +9,9 @@
         :value="item.value">
       </option>
       </select>
+
     </div>
+
   </div>
 </template>
 <script lang="ts">
