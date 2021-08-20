@@ -93,7 +93,7 @@ export default defineConfig({
     port:3000,//启动端口
     open: true,
     proxy:{ 
-      '/api': 'https://xiaohuo.online'
+      '/api': 'https://szzm.hhtz.gov.cn:10087'
     }, 
     cors:true
   }

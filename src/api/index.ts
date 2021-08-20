@@ -5,3 +5,10 @@ export const getTest=()=>{
     url: 'test',
   })
 }
+export const company=(data:any)=>{
+  return service({
+    url: 'company',
+    method:"post",
+    data
+  })
+}

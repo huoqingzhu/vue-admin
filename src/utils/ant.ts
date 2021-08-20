@@ -10,7 +10,9 @@ import {
   ElMenuItemGroup,
   ElRadioButton,
   ElRadioGroup,
-  ElDialog
+  ElDialog,
+  ElSelect,
+  ElOption
 } from 'element-plus';
 
 // 新增 导出
@@ -28,6 +30,8 @@ const ant = {
     Vue.component(ElRadioButton.name,ElRadioButton)
     Vue.component(ElRadioGroup.name,ElRadioGroup)
     Vue.component(ElDialog.name,ElDialog)
+    Vue.component(ElSelect.name,ElSelect)
+    Vue.component(ElOption.name,ElOption)
     Vue.use(ElInput)
     Vue.use(ElMenu)
     Vue.use(ElSubmenu)
