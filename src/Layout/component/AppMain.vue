@@ -7,7 +7,7 @@
         <keep-alive :exclude="exclude">
           <component :is="Component" />
         </keep-alive>
-      </router-view>
+    </router-view>
   </div>
 </template>
 <script lang="ts" setup>

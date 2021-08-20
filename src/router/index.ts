@@ -13,7 +13,7 @@ const routes: Array<RouteRecordRaw> = [
       title: "首页",
       keepAlive: true
     },
-    component: () => import("../views/Layout/index.vue"),
+    component: () => import("../Layout/index.vue"),
     children:routerList
   },
   {

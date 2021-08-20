@@ -24,6 +24,12 @@
     components:{
       ItemTree
     },
+    methods:{
+      select(index:string,item:any,routeResult:string){
+        this.$store.commit("app/changeShow",false)
+        localStorage.setItem('active',index)
+      }
+    },
     setup() {
       console.log(routerList);
       const handleOpen = (key:any, keyPath:any) => {
@@ -32,15 +38,11 @@
       const handleClose = (key:any, keyPath:any) => {
         console.log(key, keyPath);
       };
-      const select=(index:string,item:any,routeResult:string)=>{
-        localStorage.setItem('active',index)
-      }
       return {
         routerList,
         handleOpen,
         handleClose,
         variables,
-        select
       };
     },
   });

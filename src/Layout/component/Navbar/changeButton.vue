@@ -1,7 +1,7 @@
 <template>
   <icon-svg :type="type" style="font-size: 22px;" @click="change" />
 </template>
-<script lang="ts">
+<script lang="ts" >
   import { defineComponent } from "vue";
   export default defineComponent({
     data(){

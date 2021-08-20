@@ -3,7 +3,7 @@ export default    {
   name: "Main",
   sort:0,
   meta: {
-    title: "工业数字化平台",
+    title: "主页",
     keepAlive: true,
     iocn: "icon-React",
   },

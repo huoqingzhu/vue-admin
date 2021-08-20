@@ -1,4 +1,4 @@
-//components/Icon-svg
+
 <template>
   <svg class="svg-icon" aria-hidden="true">
     <use :xlink:href="`#${type}`"></use>
@@ -18,7 +18,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .svg-icon {
   width: 1em;
   height: 1em;
