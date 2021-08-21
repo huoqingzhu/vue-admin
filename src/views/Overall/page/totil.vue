@@ -12,7 +12,7 @@
   <button  @click="add(10)">+</button>
 </template>
 <script lang="ts" setup>
-import {company} from '@/api/index'
+import {getTest} from '@/api/index'
 import {computed,effectScope,watch,ref} from "vue"
 // 定义props
 const props= withDefaults(defineProps<{
@@ -32,7 +32,7 @@ function test(){
 }
 // 消除响应式对象的副作用
 const scope=effectScope()
-const data=await company({ busi_type_id: 1})
+const data=await getTest()
 const charm=ref(props.age*1000)
 scope.run(()=>{
   watch(()=>props.age,(a)=>{
