@@ -8,12 +8,12 @@ const option = {
       textStyle: {
           fontSize: '16px',
           fontWeight: '200',
-          color: '#fff',
+          color: '#333',
           textAlign: 'center',
       },
   }, {
       text: '16家',
-      left: '50%',
+      left: '48%',
       top: '52%',
       textAlign: 'center',
       textStyle: {

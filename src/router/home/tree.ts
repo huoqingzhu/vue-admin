@@ -3,7 +3,7 @@ export default    {
   name: "Tree",
   sort:5,
   meta: {
-    title: "树形结构",
+    title: "拖拽",
     keepAlive: true,
     iocn: "icon-tree",
   },

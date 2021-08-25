@@ -16,8 +16,8 @@ import {getTest} from '@/api/index'
 import {computed,effectScope,watch,ref} from "vue"
 // 定义props
 const props= withDefaults(defineProps<{
-  name: string
-  age: number
+  name?: string
+  age?: number
 }>(), {
   name: 'Niko',
 })

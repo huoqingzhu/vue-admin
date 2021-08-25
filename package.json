@@ -7,6 +7,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@tweenjs/tween.js": "^18.6.4",
     "@vitejs/plugin-legacy": "^1.4.4",
     "@vitejs/plugin-vue-jsx": "^1.1.4",
     "ant-design-vue": "^2.1.6",
@@ -18,6 +19,7 @@
     "qs": "^6.10.1",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-visualizer": "^5.5.0",
+    "three": "^0.131.3",
     "vite-plugin-compression": "^0.2.5",
     "vite-plugin-style-import": "^0.10.1",
     "vue": "^3.2.2",
@@ -29,6 +31,7 @@
     "@types/js-cookie": "^2.2.7",
     "@types/node": "^15.6.1",
     "@types/qs": "^6.9.7",
+    "@types/three": "^0.131.0",
     "@vitejs/plugin-vue": "^1.2.2",
     "@vue/compiler-sfc": "^3.2.4",
     "naive-ui": "^2.13.0",

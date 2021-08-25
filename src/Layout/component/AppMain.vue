@@ -14,7 +14,6 @@
 import Navbar from "./Navbar/index.vue"
 import {routerList} from "@/router/index"
 const exclude=routerList.filter(item=>!item.meta.keepAlive).map(item=>item.name)
-console.log(exclude)
 </script>
 <style lang="scss" scoped>
 .main{

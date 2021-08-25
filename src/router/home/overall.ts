@@ -3,7 +3,7 @@ export default    {
   name: "Overall",
   sort:3,
   meta: {
-    title: "总览图",
+    title: "组件",
     keepAlive: true,
     iocn: "icon-React",
   },
@@ -13,7 +13,7 @@ export default    {
     name: "page1",
     sort:1,
     meta: {
-      title: "页面1",
+      title: "vue3.2新特性",
       keepAlive: true,
       iocn: "icon-React",
     },
@@ -24,7 +24,7 @@ export default    {
     name: "page2",
     sort:1,
     meta: {
-      title: "页面2",
+      title: "小组件",
       keepAlive: true,
       iocn: "icon-React",
     },

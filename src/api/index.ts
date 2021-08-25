@@ -7,7 +7,7 @@ export const getTest=()=>{
 }
 export const company=(data:any)=>{
   return service({
-    url: 'company',
+    url: 'forward/company',
     method:"post",
     data
   })

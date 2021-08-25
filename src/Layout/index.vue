@@ -14,7 +14,6 @@
       v-else
       :class="[$store.state.app.device?'sidebar-container':'']"  />
     <AppMain />
-
   </div>
 </template>
 <script lang="ts">

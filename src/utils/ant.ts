@@ -12,7 +12,11 @@ import {
   ElRadioGroup,
   ElDialog,
   ElSelect,
-  ElOption
+  ElOption,
+  ElForm,
+  ElFormItem,
+  ElDropdown,
+  ElDropdownItem
 } from 'element-plus';
 
 // 新增 导出
@@ -32,10 +36,13 @@ const ant = {
     Vue.component(ElDialog.name,ElDialog)
     Vue.component(ElSelect.name,ElSelect)
     Vue.component(ElOption.name,ElOption)
+    Vue.component( ElForm.name,ElForm)
+    Vue.component( ElFormItem.name,ElFormItem)
+    Vue.use(ElDropdown)
     Vue.use(ElInput)
     Vue.use(ElMenu)
     Vue.use(ElSubmenu)
-
+    Vue.use(ElDropdownItem)
     Vue.component("v-Icon", IconFont);
   }
 };

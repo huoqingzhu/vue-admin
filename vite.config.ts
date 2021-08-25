@@ -8,6 +8,8 @@ import vueJsx from '@vitejs/plugin-vue-jsx'//jsx
 import viteImagemin from 'vite-plugin-imagemin';//压缩图片
 import legacy from '@vitejs/plugin-legacy'//代码兼容
 import path from 'path'
+const esModule=true;//默认打包esModule 版本 不进行 polyfill
+const Polyfill=false; //是否兼容ie11  默认不兼容
 const plugins=[vue(),vueJsx()]
 plugins.push(
   styleImport({
@@ -74,10 +76,12 @@ if(process.env.NODE_ENV){
       ],
     },
   }))
-  plugins.push(
-    legacy({
+  esModule?null:plugins.push(
+    Polyfill?legacy({
       targets: ['ie >= 11'],
       additionalLegacyPolyfills: ['regenerator-runtime/runtime']
+    }):legacy({
+      targets: ['defaults', 'not IE 11']
     })
   )
 }
@@ -93,7 +97,7 @@ export default defineConfig({
     port:3000,//启动端口
     open: true,
     proxy:{ 
-      '/api': 'https://xiaohuo.online'
+      '/api': 'https://xiaohuo.online'//http://localhost:8888/ https://xiaohuo.online
     }, 
     cors:true
   },

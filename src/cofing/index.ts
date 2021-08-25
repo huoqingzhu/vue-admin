@@ -1,4 +1,4 @@
-const dev=import.meta.env.DEV
+const dev=import.meta.env?.DEV||false;
 /**
  * svg线上地址
  */

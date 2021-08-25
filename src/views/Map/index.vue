@@ -20,6 +20,8 @@
   import {bounds} from './map'
   import {company} from '@/api/index'
   import gps from '@/utils/map'
+  // https://szzm.hhtz.gov.cn:10087/api/
+  import axios from 'axios'
   interface ponit{
     busi_cert_code: string
     busi_name: string
