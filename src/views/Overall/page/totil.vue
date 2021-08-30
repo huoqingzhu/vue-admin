@@ -17,7 +17,7 @@ import {computed,effectScope,watch,ref} from "vue"
 // 定义props
 const props= withDefaults(defineProps<{
   name?: string
-  age?: number
+  age: number
 }>(), {
   name: 'Niko',
 })
@@ -36,7 +36,6 @@ const data=await getTest()
 const charm=ref(props.age*1000)
 scope.run(()=>{
   watch(()=>props.age,(a)=>{
-    console.log(a)
       if(a>50){
         scope.stop()
       }

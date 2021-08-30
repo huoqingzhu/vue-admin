@@ -18,7 +18,7 @@ const exclude=routerList.filter(item=>!item.meta.keepAlive).map(item=>item.name)
 <style lang="scss" scoped>
 .main{
   width: calc(100% - 200px);
-  height:calc(100% - 50px);
+  transition:width 1s;
 }
 .sideMain{
   width: calc(100% - 64px);

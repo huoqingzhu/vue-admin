@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref } from 'vue';
+  import { defineComponent} from 'vue';
   import {routerList} from '@/router'
   import ItemTree from './item.vue'
   import {variables} from "@/cofing/index"

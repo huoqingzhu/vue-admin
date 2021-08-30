@@ -12,7 +12,26 @@ body {
 label {
   font-weight: 700;
 }
+@font-face {
+  font-family: "HeadlineA";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../assets/font/HeadlineA.ttf") format("truetype"); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+}
 
+@font-face {
+  font-family: "Redocn_2010020112245834";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../assets/font/Redocn_2010020112245834.ttf") format("truetype"); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+}
+
+@font-face {
+  font-family: "LCDM2B__";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../assets/font/LCDM2B__.TTF") format("truetype"); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+}
 html {
   height: 100%;
   box-sizing: border-box;
@@ -62,4 +81,10 @@ div:focus {
   left: 0;
   z-index: 1001;
   overflow: hidden;
+}
+.ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
 }

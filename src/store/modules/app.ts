@@ -1,17 +1,17 @@
 import {Module,ActionContext} from "vuex"
 import {appType,State,device} from "../type"
 const state:appType = {
-  device:device.desktop,//是否为手机端
-  isCollapse: false,//是否关闭  ，false 为展开的意思
+  device:device.desktop,//是否为手机
+  isCollapse: localStorage.getItem('isCollapse')=='0',//false是否关闭  ，false 为展开的意思
   active:localStorage.getItem('active')||"/main",//默认路由位置
   show:true,//侧边蓝是否隐藏
 }
 const getters={
   className(state:appType){
     if(state.device===device.move){
-      return ['main','moveMain']
+      return ['moveMain']
     }else{
-      return state.isCollapse?['main','sideMain']:['main']
+      return state.isCollapse?['sideMain']:['main']
     }
   }
 }
@@ -32,9 +32,8 @@ const mutations = {
       state.show=!state.show;
     }else{
       state.isCollapse=!state.isCollapse;
-      localStorage.setItem('isCollapse',state.isCollapse+'')
+      localStorage.setItem('isCollapse',state.isCollapse?'0':'1');
     }
-
   }
 }
 

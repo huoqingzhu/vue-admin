@@ -10,8 +10,8 @@
 import {onMounted,ref} from "vue"
 import {randomNum,randomColor,} from "./hooks"
 const props= withDefaults(defineProps<{
-  contentHeight: number,
-  contentWidth: number
+  contentHeight?: number,
+  contentWidth?: number
 }>(), {
   contentHeight:38,
   contentWidth:116
