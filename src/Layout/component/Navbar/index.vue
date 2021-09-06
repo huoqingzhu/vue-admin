@@ -2,9 +2,9 @@
   <div class="navbar">
     <div class="center shen">
       <change-button></change-button>
-      <icon-svg type="form"  />
     </div>
     <div class="center user">
+      <Switch :list="['icon-quanping','icon-quxiaoquanping']" @change="screen" />
       <el-dropdown trigger="click">
           <span class="el-dropdown-link">
             <img src="@/assets/user.gif" alt="">
@@ -22,12 +22,14 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, reactive, toRefs } from "vue";
+import { defineComponent} from "vue";
 import changeButton from "./changeButton.vue";
+import Switch from "@/components/Switch/index.vue";
 import {useRouter} from "vue-router"
 export default defineComponent({
   components:{
-    changeButton
+    changeButton,
+    Switch
   },
   setup() {
     const router=useRouter()
@@ -35,8 +37,18 @@ export default defineComponent({
       localStorage.removeItem('accessToken')
       router.push('/login')
     }
+    const screen=(type:Boolean)=>{
+        let element = document.documentElement; //设置后就是   id==con_lf_top_div 的容器全屏
+        if(!type){
+            element?.requestFullscreen()
+        }else{
+          document
+          .exitFullscreen()
+        }
+    }
     return {
-      signOut
+      signOut,
+      screen
     }
   },
 });
@@ -57,7 +69,8 @@ export default defineComponent({
     height: 100%;
   }
   .user{
-    width: 100px;
+    width: 110px;
+    justify-content:space-around;
     img{
       cursor: pointer;
       right: 0px;

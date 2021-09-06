@@ -8,10 +8,8 @@ import ant from './utils/ant'
 // 全局样式
 import "element-plus/packages/theme-chalk/src/base.scss"
 import '@/styles/index.scss'
-import "@/utils/permission"//配置路由导航守卫
-// 自动组册globComponent下的组件为全局组件
+import "@/utils/permission"
 import globComponent from './utils/globComponent'
-import TWEEN from "@tweenjs/tween.js";
 const app =createApp(App)
 globComponent(app)
 app

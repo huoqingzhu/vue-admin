@@ -1,5 +1,6 @@
-*.yml linguist-language=Vue 
+*.yml linguist-language=TypeScript
 *.html linguist-language=Vue
-*.js linguist-language=Vue
-*.xml linguist-language=Vue
-*.css linguist-language=Vue
+*.js linguist-language=TypeScript
+*.xml linguist-language=TypeScript
+*.css linguist-language=TypeScript
+*.vue linguist-language=Vue

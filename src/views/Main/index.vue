@@ -1,10 +1,11 @@
 <template>
   <div >
+     <el-button type="primary" @click="down()">同时下载多文件</el-button>
     <v-table
         :columns="columns" 
         :data-source="dataSource"
         :row-height="50"
-        :row-number="20"
+        :row-number="5"
         :roll="true"
       > 
         <template v-slot:name="{row}">
@@ -16,7 +17,6 @@
   </div>
 </template>
 <script lang="ts" setup>
-import ATable from "@/components/Table/index.vue"
 import {reactive} from "vue"
 import vTable from "@/components/Table/index2.vue"
 const state=reactive({
@@ -52,6 +52,29 @@ const Pagination={
 for(let i = 3; i < Pagination.total; i++){
   dataSource.push({id:i,name:`贵州茅台${i}分店`,age:i*5})
 }
+
+const mp3arr = ["https://xiaohuo.online/word/1.docx", "https://xiaohuo.online/word/2.docx", "https://xiaohuo.online/word/3.docx"];
+
+function download(name: string, href: string) {
+      const a = document.createElement("a"), //创建a标签
+      e = document.createEvent("MouseEvents"); //创建鼠标事件对象
+      e.initEvent("click", false, false); //初始化事件对象
+      a.href = href; //设置下载地址
+      a.download = name; //设置下载文件名
+      console.log(name)
+      a.dispatchEvent(e); //给指定的元素，执行事件click事件
+  }
+const down=()=>{
+  download("1", mp3arr[0]);
+  setTimeout(()=>{
+    download("2", mp3arr[1]);
+  },1000)
+    setTimeout(()=>{
+    download("3", mp3arr[2]);
+  },3000)
+
+}
+  //给多文件下载按钮添加点击事件
 
 </script>
 <style lang="less" scoped>
