@@ -10,10 +10,13 @@
   <h2>我的年龄是-{{age}}</h2>
   <h2>{{name}}的魅力是{{charm}}</h2>
   <button  @click="add(10)">+</button>
+  <button @click="getList">请求数据</button>
 </template>
 <script lang="ts" setup>
 import {getTest} from '@/api/index'
 import {computed,effectScope,watch,ref} from "vue"
+import service from '@/utils/request'
+import { mgop } from '@aligov/jssdk-mgop';
 // 定义props
 const props= withDefaults(defineProps<{
   name?: string
@@ -44,5 +47,32 @@ scope.run(()=>{
 })
 const add=(value:number)=>{
   emit('change',value)
+}
+const getList=()=>{
+  service({
+    url: 'forward/test',
+    method:"post",
+    data:{name:'huo'},
+    headers:{'Content-Type':'application/x-www-form-urlencoded'}
+  })
+  .then((res)=>{
+    console.log(res)
+  })
+
+
+mgop({
+  api: 'mgop.h5.http.getnews', // 必须
+  host: 'https://mapi.zjzwfw.gov.cn/',
+  dataType:'JSON',
+  type: 'POST',
+  data:JSON.stringify({'uuid':123}),
+  appKey: '6xxfslcv+200600801+tlkciqg', // 必须
+  onSuccess: data => { 
+  	  console.log('data', data)
+  },
+  onFail: err => {
+  	 console.log(err, 'err')
+  }
+});
 }
 </script>

@@ -1,5 +1,5 @@
 
-import {BoxGeometry,Mesh,MeshLambertMaterial,TextureLoader,SpriteMaterial,Sprite,Group,Vector2,Shape,ExtrudeGeometry,MeshPhongMaterial,DoubleSide} from "three"
+import {BoxGeometry,Mesh,MeshLambertMaterial,TextureLoader,SpriteMaterial,Sprite,Group,Vector2,Shape,ExtrudeGeometry,MeshPhongMaterial,DoubleSide,SphereGeometry,MeshBasicMaterial} from "three"
 interface list {
   id: number;
   x: number;
@@ -25,13 +25,19 @@ function randomColor(): string {
  */
 const createCube=(color:string=randomColor()):Mesh=>{
   let cube:Mesh
-  let geometry = new BoxGeometry(100, 100, 100); //创建一个立方体几何对象Geometry
+  let geometry = new BoxGeometry(0.2, 0.1, 0.1); //创建一个立方体几何对象Geometry
   let material = new MeshLambertMaterial({
       color:color ,
   }); 
   cube = new Mesh(geometry, material); //网格模型对象Mesh
   return cube
 }
+/**
+ * 
+ * @param url 
+ * @param color 
+ * @returns 
+ */
 const getSprite=(url:string="person.png", color = randomColor()):THREE.Sprite=> {
   let texture = new TextureLoader().load(url);
   var spriteMaterial = new SpriteMaterial({
@@ -98,4 +104,16 @@ const addPerson = (node: Group,value:list,targetMap:Map<list, Sprite>) => {
     });
     return group
 } 
-export {createCube,getSprite,addPerson,createGeojson}
+/**
+ * 生成圆
+ * @param size 大小
+ * @param color 颜色
+ * @returns 
+ */
+const createSphere=(size=10,color=randomColor()) =>{
+  const geometry = new SphereGeometry( size, 50, 50 );
+  const material = new MeshBasicMaterial( {color: color} );
+  const sphere = new Mesh( geometry, material );
+  return sphere
+}
+export {createCube,getSprite,addPerson,createGeojson,createSphere}

@@ -1,4 +1,4 @@
-import service from '../utils/request'
+import service from '@/utils/request'
 
 export const getTest=()=>{
   return service({

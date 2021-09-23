@@ -7,8 +7,8 @@
     />
     <transition name="slide-fade" v-if="$store.state.app.device ">
       <Sidebar 
-      v-show="$store.state.app.show"
-      :class="[$store.state.app.device?'sidebar-container':'']"  />
+        v-show="$store.state.app.show"
+        :class="[$store.state.app.device?'sidebar-container':'']"  />
     </transition>
     <Sidebar 
       v-else
@@ -24,7 +24,7 @@ import size from "./size"
 export default defineComponent({
   components:{
     Sidebar,
-    AppMain
+    AppMain,
   },
   methods:{
     handleClickOutside(){

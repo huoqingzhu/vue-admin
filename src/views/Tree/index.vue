@@ -1,7 +1,9 @@
 <template>
-    <h1>头部</h1>
-    <h1>容器</h1>
+    <iframe style="width: 100%; height: 100%" src="https://xiaohuo.online/vite/#/"></iframe>
 </template>
+<script lang="ts" setup>
+
+</script>
 <style scoped lang="scss">
 .trascina{
   width: 100%;

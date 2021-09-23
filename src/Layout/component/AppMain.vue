@@ -5,7 +5,7 @@
         v-slot="{ Component }"
       >
         <keep-alive :exclude="exclude">
-          <component :is="Component" />
+            <component :is="Component" />
         </keep-alive>
     </router-view>
   </div>

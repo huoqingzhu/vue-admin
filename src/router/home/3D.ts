@@ -52,6 +52,17 @@ export default    {
       iocn: "icon-React",
     },
     component: () => import("@/views/3D/page/Slow/index.vue"),
+  },
+  {
+    path: "/tarck",
+    name: "Tarck",
+    sort:1,
+    meta: {
+      title: "轨迹",
+      keepAlive: true,
+      iocn: "icon-React",
+    },
+    component: () => import("@/views/3D/page/Track/index.vue"),
   }
 ]
 

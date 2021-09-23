@@ -1,5 +1,5 @@
 
-import {WebGLRenderer,Scene,Vector3,Camera,Object3D,Raycaster,Vector2,OrthographicCamera,PerspectiveCamera,AmbientLight,Matrix4} from 'three'
+import {WebGLRenderer,Scene,Vector3,Camera,Object3D,Raycaster,AxesHelper,Vector2,OrthographicCamera,PerspectiveCamera,AmbientLight,Matrix4} from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 class Three {
   public camera:Camera//相机
@@ -33,16 +33,18 @@ class Three {
     if(!camera){
       this.camera = new OrthographicCamera(-s * k, s * k, s, -s, 1,10000);
     }else{//透视投影
-      this.camera = new PerspectiveCamera( 50, width/height, 1, 10000 );
+      this.camera = new PerspectiveCamera( 50, width/height, 0.1, 5000 );
     }
     //渲染器我们需要阴影效果：
     this.renderer.shadowMap.enabled = true;
+    // 返回当前显示设备的物理像素分辨率与CSS像素分辨率之比
+    this.renderer.setPixelRatio( window.devicePixelRatio );
     /**
      * 创建渲染器对象
      */
     //辅助三维坐标系AxisHelper
-    // let axisHelper = new AxesHelper(450);
-    // this.scene.add(axisHelper);
+    let axisHelper = new AxesHelper(40);
+    this.scene.add(axisHelper);
     // 右 左 上 下  前后
     // this.scene.background = new CubeTextureLoader().load([ '3.jpg', '6.jpg', '5.jpg','2.jpg','1.jpg', '4.jpg',])
     // this.scene.background = new CubeTextureLoader().load([ '6.jpg', '3.jpg', '5.jpg','2.jpg','4.jpg', '1.jpg',])
@@ -64,7 +66,7 @@ class Three {
   // 初始化
   init = () => {
     //点光源
-    this.renderer.setClearColor(0xEEEEEE, 0.0);//设置背景颜色(0x4169E1, 1)
+    // this.renderer.setClearColor(0xEEEEEE, 0.0);//设置背景颜色(0x4169E1, 1)
     this.container.appendChild(this.renderer.domElement); //body元素中插入canvas对象
     this.createControls()//监听窗口变化
     this.render()

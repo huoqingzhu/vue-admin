@@ -61,7 +61,6 @@ function download(name: string, href: string) {
       e.initEvent("click", false, false); //初始化事件对象
       a.href = href; //设置下载地址
       a.download = name; //设置下载文件名
-      console.log(name)
       a.dispatchEvent(e); //给指定的元素，执行事件click事件
   }
 const down=()=>{
