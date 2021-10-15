@@ -1,6 +1,10 @@
 <template>
   <div >
-     <el-button type="primary" @click="down()">同时下载多文件</el-button>
+      <div class="upload" @click="change">
+          模版下载
+      </div>
+      <el-button type="primary" @click="down()">同时下载多文件</el-button>
+    
     <v-table
         :columns="columns" 
         :data-source="dataSource"
@@ -19,6 +23,13 @@
 <script lang="ts" setup>
 import {reactive} from "vue"
 import vTable from "@/components/Table/index2.vue"
+import {uniqueSet,uniqueSplice,uniqueIndexOf,uniqueIncludes,uniqueHasOwnProperty} from "@/utils/array"
+const arr = [1,1,'true','true',true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,'NaN', 0, 0, 'a', 'a',{},{}];
+console.log(uniqueSet(arr))
+console.log(uniqueSplice(arr))
+console.log(uniqueIndexOf(arr))
+console.log(uniqueIncludes(arr))
+console.log(uniqueHasOwnProperty(arr))
 const state=reactive({
       ed: 34.5,
 })
@@ -54,7 +65,11 @@ for(let i = 3; i < Pagination.total; i++){
 }
 
 const mp3arr = ["https://xiaohuo.online/word/1.docx", "https://xiaohuo.online/word/2.docx", "https://xiaohuo.online/word/3.docx"];
-
+const change=()=>{
+  const name='班级管理学员名单导入模版.xls'
+  const url=location.origin+location.pathname+'/img/'+name
+  download(name,url)
+}
 function download(name: string, href: string) {
       const a = document.createElement("a"), //创建a标签
       e = document.createEvent("MouseEvents"); //创建鼠标事件对象
@@ -73,9 +88,21 @@ const down=()=>{
   },3000)
 
 }
+
+
   //给多文件下载按钮添加点击事件
 
 </script>
 <style lang="less" scoped>
-
+.upload{
+  width: 80px;
+  text-align: center;
+  color: #4f95f7;
+  border:none;
+  height:30px;
+  line-height: 30px;
+  border-bottom: 2px solid #4f95f7;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
 </style>

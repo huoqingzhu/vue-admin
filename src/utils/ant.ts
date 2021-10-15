@@ -16,7 +16,8 @@ import {
   ElForm,
   ElFormItem,
   ElDropdown,
-  ElDropdownItem
+  ElDropdownItem,
+  ElRate
 } from 'element-plus';
 
 // 新增 导出
@@ -38,6 +39,7 @@ const ant = {
     Vue.component(ElOption.name,ElOption)
     Vue.component( ElForm.name,ElForm)
     Vue.component( ElFormItem.name,ElFormItem)
+    Vue.component(ElRate.name,ElRate)
     Vue.use(ElDropdown)
     Vue.use(ElInput)
     Vue.use(ElMenu)

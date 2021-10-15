@@ -1,7 +1,7 @@
 <template>
   <icon-svg :type="type" :style="{fontSize:size}" @click="change" />
 </template>
-<script lang="ts" >
+<script lang="ts"  >
   import { defineComponent } from "vue";
   export default defineComponent({
     props: {
@@ -16,8 +16,10 @@
       size:{
         type:String,
         default:'30px'
-      }
+      },
+      
     },
+    emits: ['change','update:value'],
     data(){
         return {
           off:this.value,

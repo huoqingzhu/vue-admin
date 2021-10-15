@@ -56,7 +56,7 @@ export default defineComponent({
       width: $width;
       height: $width;
       transform: translate(-50%, -50%);
-      animation: moveToTop #{random(6) + 3}s ease-in-out -#{math.div(random(5000), 1000)}s infinite;
+      animation: moveToTop 1s infinite;
     }
   }
 

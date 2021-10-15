@@ -97,7 +97,7 @@ export default defineConfig({
     port:3000,//启动端口
     open: true,
     proxy:{ 
-      '/api': 'https://xiaohuo.online'//http://localhost:8888/ https://xiaohuo.online
+      '/api': 'http://localhost:8888'//http://localhost:8888/ https://xiaohuo.online
     }, 
     cors:true
   },

@@ -21,7 +21,8 @@ import {
   GridComponent,
   VisualMapComponent,
   DataZoomComponent,
-  MarkLineComponent
+  MarkLineComponent,
+  ToolboxComponent
 } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
 // 注册必须的组件
@@ -39,7 +40,8 @@ echarts.use([
   ScatterChart,
   VisualMapComponent,
   DataZoomComponent,
-  MarkLineComponent
+  MarkLineComponent,
+  ToolboxComponent
 ]);
 export default defineComponent({
   props: {

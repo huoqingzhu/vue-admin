@@ -11,14 +11,19 @@
     </div>
 </template>
 <script lang="ts" setup>
-import {reactive,ref} from "vue"
+import {reactive,ref,onMounted} from "vue"
 import Totil from "./totil.vue"
 const state=reactive({
-  age:10,
+    age:10,
 })
 const child=ref()
 const change=(value:number)=>{
     state.age+=value
-    child.value.test()
+    child
+    .value.test()
 }
+onMounted(()=>{
+    console.log('A组件,mounted')
+})
+console.log('A组件,created')
 </script>

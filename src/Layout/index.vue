@@ -5,6 +5,8 @@
       class="drawer-bg"
       @click="handleClickOutside"
     />
+    <!-- <div style="width:100%;height:100%;position:absolute;background-color: #000;z-index: 999;color: #fff;">锁屏</div> -->
+    <lockscreen v-if="$store.state.lockscreen.isLock" />
     <transition name="slide-fade" v-if="$store.state.app.device ">
       <Sidebar 
         v-show="$store.state.app.show"
@@ -21,10 +23,12 @@ import { defineComponent} from "vue";
 import Sidebar from "./component/Sidebar/index.vue"
 import AppMain from "./component/AppMain.vue";
 import size from "./size"
+import lockscreen from "./lockscreen/lockscreen.vue"
 export default defineComponent({
   components:{
     Sidebar,
     AppMain,
+    lockscreen
   },
   methods:{
     handleClickOutside(){
@@ -44,6 +48,7 @@ export default defineComponent({
   display: flex;
   overflow: hidden;
   overflow-x: auto;
+  position: relative;
 }
 .drawer-bg {
   background: #000;

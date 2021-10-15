@@ -2,7 +2,7 @@ const dev=import.meta.env?.DEV||false;
 /**
  * svg线上地址
  */
-export const IconUrl="//at.alicdn.com/t/font_2666006_7b4z5vdzkzi.js"
+export const IconUrl="//at.alicdn.com/t/font_2666006_idsmhci56f.js"
 /** 
  * 配置url路径
  */

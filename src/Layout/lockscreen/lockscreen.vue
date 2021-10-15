@@ -23,30 +23,10 @@
         :battery-status="batteryStatus"
         :calc-discharging-time="calcDischargingTime"
       />
-      <!--      <xiaomi-charge :battery="battery" />-->
     </template>
     <template v-if="isShowLogin">
       <div class="login-box">
-        <a-avatar :size="128">
-          <template #icon>
-            <user-outlined />
-          </template>
-        </a-avatar>
-        <div class="username">{{ loginForm.username }}</div>
-        <a-input-search
-          v-model:value="loginForm.password"
-          type="password"
-          autofocus
-          placeholder="请输入登录密码"
-          size="large"
-          @search="onLogin"
-        >
-          <template #enterButton>
-            <LoadingOutlined v-if="loginLoading" />
-            <arrow-right-outlined v-else />
-          </template>
-        </a-input-search>
-        <a style="margin-top: 10px" @click="nav2login">重新登录</a>
+        <a style="margin-top: 10px" @click="nav2login">登陆</a>
       </div>
     </template>
     <template v-if="!isShowLogin">
@@ -65,8 +45,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs, computed } from 'vue'
-import { Avatar, message, Modal } from 'ant-design-vue'
+import { defineComponent, reactive, toRefs } from 'vue'
 import {
   LockOutlined,
   LoadingOutlined,
@@ -76,7 +55,7 @@ import {
   ArrowRightOutlined,
   WifiOutlined
 } from '@ant-design/icons-vue'
-
+import {key} from '@/store'
 import { useRouter, useRoute } from 'vue-router'
 import { useOnline } from './useOnline'
 import { useTime } from './useTime'
@@ -96,13 +75,11 @@ export default defineComponent({
     ArrowRightOutlined,
     ApiOutlined,
     WifiOutlined,
-    [Avatar.name]: Avatar,
     HuaweiCharge,
     XiaomiCharge
   },
-  setup(props, { emit }) {
-    const store = useStore()
-    const isLock = computed(() => store.state['lockscreen/isLock'])
+  setup(props) {
+    const store = useStore(key)
     // 获取本地时间
     const { month, day, hour, minute, second, week } = useTime()
     const { online } = useOnline()
@@ -117,44 +94,22 @@ export default defineComponent({
       isShowLogin: false,
       loginLoading: false, // 正在登录
       loginForm: {
-        username: store.getters['user/userInfo']?.username,
+        username: "admin",
         password: ''
       }
     })
 
     // 解锁登录
     const unLockLogin = (val: boolean) => (state.isShowLogin = val)
-
-    // 登录
-    const onLogin = async () => {
-      if (state.loginForm.password.trim() == '') return message.warn('请填写密码')
-      const params = { ...state.loginForm }
-      state.loginLoading = true
-      // params.password = md5(params.password)
-      const { code, message: msg } = await store.dispatch('user/login', params).finally(() => {
-        state.loginLoading = false
-        message.destroy()
-      })
-      if (code == 0) {
-        Modal.destroyAll()
-        message.success('登录成功！')
-        unLockLogin(false)
-        store.commit('lockscreen/setLock', false)
-      } else {
-        message.info(msg || '登录失败')
-      }
-      state.loginLoading = false
-    }
-
     const nav2login = () => {
-      unLockLogin(false)
+      // unLockLogin(false)
       store.commit('lockscreen/setLock', false)
-      router.replace({
-        path: '/login',
-        query: {
-          redirect: route.fullPath
-        }
-      })
+      // router.replace({
+      //   path: '/login',
+      //   query: {
+      //     redirect: route.fullPath
+      //   }
+      // })
     }
 
     return {
@@ -170,7 +125,6 @@ export default defineComponent({
       batteryStatus,
       calcDischargingTime,
       unLockLogin,
-      onLogin,
       nav2login
     }
   }

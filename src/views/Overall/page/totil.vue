@@ -14,9 +14,13 @@
 </template>
 <script lang="ts" setup>
 import {getTest} from '@/api/index'
-import {computed,effectScope,watch,ref} from "vue"
+import {computed,effectScope,watch,ref,onMounted} from "vue"
 import service from '@/utils/request'
 import { mgop } from '@aligov/jssdk-mgop';
+onMounted(()=>{
+    console.log('A组件,mounted')
+})
+console.log('A组件,created')
 // 定义props
 const props= withDefaults(defineProps<{
   name?: string

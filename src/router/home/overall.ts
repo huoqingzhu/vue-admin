@@ -30,6 +30,29 @@ export default    {
     },
     component: () => import("@/views/Overall/page/page2.vue"),
   
+  },
+  {
+    path: "/m3u8",
+    name: "m3u8",
+    sort:1,
+    meta: {
+      title: "m3u8",
+      keepAlive: true,
+      iocn: "icon-React",
+    },
+    component: () => import("@/views/Overall/page/M3u8.vue"),
+  
+  },
+  {
+    path: "/evalute",
+    name: "evalute",
+    sort:1,
+    meta: {
+      title: "evalute",
+      keepAlive: true,
+      iocn: "icon-React",
+    },
+    component: () => import("@/views/Overall/page/evaluate.vue"),
   }
 ]
 

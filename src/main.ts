@@ -9,6 +9,7 @@ import ant from './utils/ant'
 import "element-plus/packages/theme-chalk/src/base.scss"
 import '@/styles/index.scss'
 import "@/utils/permission"
+import 'nprogress/nprogress.css'  // 这个nprogress样式必须引入
 import globComponent from './utils/globComponent'
 const app =createApp(App)
 globComponent(app)

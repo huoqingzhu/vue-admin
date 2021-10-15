@@ -4,6 +4,7 @@
       <change-button></change-button>
     </div>
     <div class="center user">
+      <Switch :list="['icon-suo-','icon-suo-']" size="24px" @change="lockScreen" />
       <Switch :list="['icon-quanping','icon-quxiaoquanping']" @change="screen" />
       <el-dropdown trigger="click">
           <span class="el-dropdown-link">
@@ -25,7 +26,9 @@
 import { defineComponent} from "vue";
 import changeButton from "./changeButton.vue";
 import Switch from "@/components/Switch/index.vue";
+import {key} from "@/store"
 import {useRouter} from "vue-router"
+import {useStore}  from "vuex"
 export default defineComponent({
   components:{
     changeButton,
@@ -33,9 +36,13 @@ export default defineComponent({
   },
   setup() {
     const router=useRouter()
+    const store=useStore(key)
     const signOut=()=>{
       localStorage.removeItem('accessToken')
       router.push('/login')
+    }
+    const lockScreen=()=>{
+        store.commit('lockscreen/setLock',true)
     }
     const screen=(type:Boolean)=>{
         let element = document.documentElement; //设置后就是   id==con_lf_top_div 的容器全屏
@@ -48,7 +55,8 @@ export default defineComponent({
     }
     return {
       signOut,
-      screen
+      screen,
+      lockScreen
     }
   },
 });

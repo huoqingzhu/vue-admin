@@ -6,7 +6,7 @@ import { Storage } from '@/utils/Storage'
 const initTime = 60 * 60
 
 export const mutations = {
-  setLock: (state: ILockscreenState, payload) => {
+  setLock: (state: ILockscreenState, payload:boolean) => {
     state.isLock = payload
     Storage.set(IS_LOCKSCREEN, state.isLock)
   },
