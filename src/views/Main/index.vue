@@ -23,13 +23,6 @@
 <script lang="ts" setup>
 import {reactive} from "vue"
 import vTable from "@/components/Table/index2.vue"
-import {uniqueSet,uniqueSplice,uniqueIndexOf,uniqueIncludes,uniqueHasOwnProperty} from "@/utils/array"
-const arr = [1,1,'true','true',true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,'NaN', 0, 0, 'a', 'a',{},{}];
-console.log(uniqueSet(arr))
-console.log(uniqueSplice(arr))
-console.log(uniqueIndexOf(arr))
-console.log(uniqueIncludes(arr))
-console.log(uniqueHasOwnProperty(arr))
 const state=reactive({
       ed: 34.5,
 })

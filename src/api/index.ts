@@ -2,17 +2,17 @@ import service from '@/utils/request'
 
 export const getTest=()=>{
   return service({
-    url: 'forward/test',
+    url: '/test',
   })
 }
 export const getTest1=()=>{
   return service({
-    url: 'forward/test1',
+    url: '/test1',
   })
 }
 export const company=(data:any)=>{
   return service({
-    url: 'forward/company',
+    url: '/company',
     method:"post",
     data
   })

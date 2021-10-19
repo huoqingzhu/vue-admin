@@ -2,6 +2,7 @@
   <div>
       <el-button type="primary" @click="dialogVisible=!dialogVisible" >打开</el-button>
       <el-button type="primary" @click="promiseAll" >promise并发请求</el-button>
+      <el-button type="primary" @click="allSettled" >promise.allSettled</el-button>
       <el-button type="primary" @click="axiosAll" >axios并发请求</el-button>
         <el-dialog
         :title="title"
@@ -73,6 +74,22 @@ export default defineComponent({
   methods:{
       handleClose() {
       this.dialogVisible=false
+      },
+      allSettled(){
+        Promise.allSettled([getTest1(),getTest()])
+        .then(res=>{
+          console.log(res)
+        })
+        .catch(err=>{
+          console.log(err)
+        })
+          Promise.any([getTest(),getTest1()])
+        .then(res=>{
+          console.log(res)
+        })
+        .catch(err=>{
+          console.log(err)
+        })
       },
       promiseAll(){
         Promise.all([getTest1(),getTest()])

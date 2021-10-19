@@ -16,17 +16,22 @@
 import {getTest} from '@/api/index'
 import {computed,effectScope,watch,ref,onMounted} from "vue"
 import service from '@/utils/request'
-import { mgop } from '@aligov/jssdk-mgop';
-onMounted(()=>{
-    console.log('A组件,mounted')
-})
-console.log('A组件,created')
+import HTTP from '@/utils/http'
+
+// onMounted(()=>{
+//     console.log('b组件,mounted')
+// })
+// console.log('b组件,created')
 // 定义props
 const props= withDefaults(defineProps<{
   name?: string
   age: number
 }>(), {
   name: 'Niko',
+})
+HTTP('/test')
+.then((res)=>{
+  console.log(res)
 })
 // 定义emit事件
 const emit = defineEmits(['change'])
@@ -62,21 +67,5 @@ const getList=()=>{
   .then((res)=>{
     console.log(res)
   })
-
-
-mgop({
-  api: 'mgop.h5.http.getnews', // 必须
-  host: 'https://mapi.zjzwfw.gov.cn/',
-  dataType:'JSON',
-  type: 'POST',
-  data:JSON.stringify({'uuid':123}),
-  appKey: '6xxfslcv+200600801+tlkciqg', // 必须
-  onSuccess: data => { 
-  	  console.log('data', data)
-  },
-  onFail: err => {
-  	 console.log(err, 'err')
-  }
-});
 }
 </script>
