@@ -1,11 +1,11 @@
 <template>
   <div >
       <div class="upload" @click="change">
-          模版下载
+          模版下载{{$store.state.app.device}}
       </div>
       <el-button type="primary" @click="down()">同时下载多文件</el-button>
     
-    <v-table
+    <!-- <v-table
         :columns="columns" 
         :data-source="dataSource"
         :row-height="50"
@@ -17,12 +17,46 @@
               {{row.name}}
             </div>
         </template>
-      </v-table> 
+      </v-table>  -->
+    <div class="flex"> 
+      <div class="box">
+            <div style="width: 150px;height:150px;background-color:rgb(197, 28, 28)f;">
+    
+          </div>
+      </div>
+      <div class="box">
+          <div class ="fd" style="width: 100%;height:100%;background-color: rgb(229, 145, 145);">
+          </div>
+      </div>
+    </div>
   </div>
 </template>
 <script lang="ts" setup>
 import {reactive} from "vue"
 import vTable from "@/components/Table/index2.vue"
+
+class Person {
+  name:string;
+  age:number;
+  constructor(name:string,age:number){
+    this.name=name
+    this.age=age
+  }
+  getName(){
+    console.log(`我的名字是${this.name}`)
+  }
+}
+const xiaoMing=new Person('小明',18)
+console.log(xiaoMing.constructor.prototype)
+console.log(xiaoMing.__proto__)
+function Animal( name:string,age:number){
+    this.name=name
+    this.age=age
+}
+const cat=new Animal('白狗',10)
+console.log(cat.constructor.prototype)
+console.log(cat.__proto__)
+console.log(cat)
 const state=reactive({
       ed: 34.5,
 })
@@ -98,4 +132,13 @@ const down=()=>{
   margin-bottom: 10px;
   cursor: pointer;
 }
+.box{
+  width: 100px;
+  height: 100px;
+  background-color: rgb(10, 235, 148);
+}
+.fd{
+  transform: scale(3840/6656, 1080/1872);
+  transform-origin: 0px 0px 0px;
+};
 </style>

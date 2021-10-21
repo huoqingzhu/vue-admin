@@ -63,7 +63,9 @@ a:hover {
 div:focus {
   outline: none;
 }
-
+.flex{
+  display: flex;
+}
 .center {
   display: flex;
   justify-content: center;

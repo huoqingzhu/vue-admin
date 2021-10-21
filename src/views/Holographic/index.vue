@@ -7,9 +7,9 @@
       <div style="width: 337px;height: 270px">
         <Echart :option="radar" />
       </div>
-      <div style="width: 400px;height: 270px">
+      <!-- <div style="width: 400px;height: 270px">
         <Echart :option="line" />
-      </div>
+      </div> -->
       <div style="width: 637px;height: 270px">
         <Echart :option="bar" />
       </div>
@@ -25,7 +25,7 @@
   import Echart from '@/components/echart/index.vue';
   import pie from './options/pie'
   import radar from './options/radar'
-  import line from './options/line'
+  // import line from './options/line'
   import bar  from './options/bar'
   import lineBar from './options/lineBar'
   import percentage from './options/percentage'

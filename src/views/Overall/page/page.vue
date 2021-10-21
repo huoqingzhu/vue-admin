@@ -1,5 +1,7 @@
 <template>
     <div>
+        {{age}}
+        
     <suspense>
         <template #default>
             <Totil ref="child" :age="state.age" @change="change" name="一樽" />
@@ -18,6 +20,10 @@ import ChuildB from "./chuildB.vue";
 const state=reactive({
     age:10,
 })
+let age=10
+const change2=()=>{
+    age++
+}
 const child=ref()
 const change=(value:number)=>{
     state.age+=value
@@ -31,7 +37,7 @@ onBeforeUnmount(()=>{
     console.log('A组件,beforeDestory')
 })
 onUnmounted(()=>{
-     console.log('A组件,destoryed')
+    console.log('A组件,destoryed')
 })
 console.log('A组件,created')
 </script>

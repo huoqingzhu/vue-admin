@@ -12,6 +12,7 @@ import "@/utils/permission"
 import 'nprogress/nprogress.css'  // 这个nprogress样式必须引入
 import globComponent from './utils/globComponent'
 const app =createApp(App)
+console.log(app)
 globComponent(app)
 app
 .use(router)

@@ -53,6 +53,17 @@ export default    {
       iocn: "icon-React",
     },
     component: () => import("@/views/Overall/page/evaluate.vue"),
+  },
+  {
+    path: "/test",
+    name: "test",
+    sort:1,
+    meta: {
+      title: "test",
+      keepAlive: true,
+      iocn: "icon-React",
+    },
+    component: () => import("@/views/Overall/page/test.vue"),
   }
 ]
 

@@ -34,6 +34,9 @@ const mutations = {
       state.isCollapse=!state.isCollapse;
       localStorage.setItem('isCollapse',state.isCollapse?'0':'1');
     }
+  },
+  changeTest(state:appType,type:boolean):void {
+    state.isCollapse=type
   }
 }
 
