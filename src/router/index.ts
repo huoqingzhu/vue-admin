@@ -1,9 +1,21 @@
 
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 const modules = import.meta.globEager('./home/*.ts')
-export const routerList = Object.values(modules).map((item:any)=>item.default).sort((a,b)=>a.sort-b.sort);
+const tree= {
+  path: "/tree",
+  name: "Tree",
+  meta: {
+    title: "拖拽",
+    keepAlive: true,
+    iocn: "icon-tree",
+    blank:true
+  },
+  component: () => import("@/views/Tree/index.vue"),
+}
+const routerList = Object.values(modules).map((item:any)=>item.default).sort((a,b)=>a.sort-b.sort);
 export type List =typeof routerList;
 const redirect=localStorage.getItem('active')||"/main"
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -27,8 +39,11 @@ const routes: Array<RouteRecordRaw> = [
   },
 
 ];
+routes.push(tree)
+routerList.push(tree)
 const router = createRouter({
   history: createWebHashHistory(),
   routes
 });
+export {routerList};
 export default router;

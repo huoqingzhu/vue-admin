@@ -17,7 +17,8 @@ import {
   ElFormItem,
   ElDropdown,
   ElDropdownItem,
-  ElRate
+  ElRate,
+  ElColorPicker
 } from 'element-plus';
 
 // 新增 导出
@@ -45,6 +46,7 @@ const ant = {
     Vue.use(ElMenu)
     Vue.use(ElSubmenu)
     Vue.use(ElDropdownItem)
+    Vue.use(ElColorPicker)
     Vue.component("v-Icon", IconFont);
   }
 };

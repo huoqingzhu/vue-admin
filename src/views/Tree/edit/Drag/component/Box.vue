@@ -28,7 +28,7 @@
 <script lang="ts">
 import { computed, defineComponent, PropType, ref } from "vue";
 import { useStore } from "vuex";
-import { style } from "./type";
+import { style } from "../../type";
 export default defineComponent({
   emits: {
     mousedown: null,
@@ -94,7 +94,7 @@ export default defineComponent({
       ctx.emit("mouseup");
     }
     const boxClick = () => {
-      store.commit("changeIsEmpty", 1);
+      // store.commit("changeIsEmpty", 1);
     };
     return { mousedown, mouseover, box, boxClick, delIcons,mouseup,styles };
   },

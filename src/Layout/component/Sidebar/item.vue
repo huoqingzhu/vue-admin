@@ -5,19 +5,19 @@
             <i>
               <icon-svg :type="item.meta.iocn" style="font-size: 22px;" />
             </i>
-            <span style="margin-left: 10px;">
+            <span style="margin-left: 10px;" >
               {{item.meta.title}}
             </span>
           </template>
           <item-tree :list="item.children||[]" />
       </el-submenu>
-      <el-menu-item v-else :index="`${item.path}`">
+      <el-menu-item v-else :index="`${item.path}`" @click="change(item)">
         <i >
           <icon-svg :type="item.meta.iocn" style="font-size: 22px;" />
         </i>
         
           <template #title>
-            <span style="margin-left: 10px;">{{item.meta.title}}</span>
+            <span style="margin-left: 10px;" >{{item.meta.title}}</span>
           </template>
       </el-menu-item>
     </template>
@@ -26,6 +26,7 @@
 <script lang="ts">
   import { defineComponent, ref,PropType } from 'vue';
   import {List} from '@/router'
+  import {useRouter} from "vue-router"
   export default defineComponent({
     name:"itemTree",
     props:{
@@ -35,15 +36,28 @@
       }
     },
     setup() {
+      const router = useRouter()
       const handleOpen = (key:any, keyPath:any) => {
         console.log(key, keyPath);
       };
       const handleClose = (key:any, keyPath:any) => {
         console.log(key, keyPath);
       };
+      const change=(type:any)=>{
+          console.log(type)
+          if(!type.meta.blank){
+            router.push(type.path)
+          }else{
+            let routeUrl = router.resolve({
+                  path: type.path,
+            });
+            window.open(routeUrl .href, '_blank');
+          }
+      }
       return {
         handleOpen,
         handleClose,
+        change
       };
     },
   });

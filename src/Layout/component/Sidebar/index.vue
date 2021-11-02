@@ -3,7 +3,6 @@
         :default-active="$store.state.app.active" 
         class="el-menu-vertical-demo" 
         @open="handleOpen" 
-        :router="true"
         :background-color="variables.menuBg"
         :text-color="variables.menuText"
         :unique-opened="false"

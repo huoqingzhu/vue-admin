@@ -63,7 +63,7 @@ a:hover {
 div:focus {
   outline: none;
 }
-.flex{
+.flex {
   display: flex;
 }
 .center {
@@ -89,4 +89,9 @@ div:focus {
   text-overflow: ellipsis;
   overflow: hidden;
   word-break: break-all;
+}
+.flex-between {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
