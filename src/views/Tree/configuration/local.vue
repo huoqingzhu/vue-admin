@@ -1,6 +1,8 @@
 <template>
   <div class="local">
-        局部
+        <v-collapse :show="false">
+          123
+        </v-collapse>
   </div>
 </template>
 <script lang="ts" setup>

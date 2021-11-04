@@ -18,7 +18,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import {onMounted,ref,computed,reactive,nextTick,watch} from "vue"
+import {onMounted,ref,computed,reactive,nextTick,onUnmounted,watch} from "vue"
 import {key} from '@/store/index'
 import { useStore } from 'vuex';
 import ScaleX from "./component/scaleX.vue"
@@ -43,14 +43,24 @@ const change=()=>{
     state.eye=!state.eye
 }
 const regression=()=>{
-  console.log(node.value)
   store.commit('edit/regression',{width:node.value.clientWidth-60,height:node.value.clientHeight-60})
 }
+watch(()=>[store.state.edit.overall.width,store.state.edit.overall.height],()=>{
+      regression()
+})
+const positionInt=()=>{
+    regression()
+}
+  onUnmounted(() => {
+    window.removeEventListener("resize", positionInt);
+  });
 onMounted(() => {
   //@ts-ignore
   if(node.value){
     window.addEventListener('scroll', scrollFunc,true)
   }
+    window.addEventListener("resize",positionInt);
+
   nextTick(()=>{
     regression()
   })

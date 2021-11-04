@@ -1,16 +1,13 @@
 <template>
   <div class="lay-count">
-    <span >{{ params[0][0] }}</span>
+      {{id}}
   </div>
 </template>
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 export default defineComponent({
   props: {
-    params: {
-      type: Array as PropType<string[][]>,
-      required: true,
-    },
+    id:String
   },
 });
 </script>

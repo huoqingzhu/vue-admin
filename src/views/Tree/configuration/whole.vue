@@ -1,4 +1,5 @@
 <template>
+  <div class="gzGP0">页面设置 </div>
   <div class="whole">
         <Both name="屏幕大小" >
             <div  class="flex-between">
@@ -19,9 +20,12 @@
   </div>
 </template>
 <script lang="ts" setup>
-import {ref} from "vue"
+import {ref,watch} from "vue"
 import Both from "@/components/Both/index.vue"
 import VInput from "@/components/VInput/index.vue"
+import { useStore } from "vuex"
+import {key} from "@/store"
+const store = useStore(key)
 const predefineColors = ref([
       '#ff4500',
       '#ff8c00',
@@ -38,6 +42,7 @@ const predefineColors = ref([
       'hsla(209, 100%, 56%, 0.73)',
       '#c7158577',
     ])
+
 </script>
 <style lang="scss" scoped>
 .whole{
@@ -45,5 +50,16 @@ const predefineColors = ref([
   color: #b4b7c1;
   padding: 20px 0;
 
+}
+  .gzGP0 {
+    height: 36px;
+    line-height: 36px;
+    border-bottom: 1px
+    solid rgba(36, 38, 46, 0.4);
+    background: #3d404d;
+    font-size: 14px;
+    text-align: center;
+    font-weight: normal;
+    color: #b4b7c1;
 }
 </style>

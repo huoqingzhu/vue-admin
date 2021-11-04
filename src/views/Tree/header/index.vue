@@ -5,9 +5,13 @@
 </template>
 <script lang="ts" setup>
 import Bus from "@/Bus"
+import { key } from "@/store";
+import {useStore,mapActions} from "vuex"
+const store = useStore(key);
 const add=()=>{
-  Bus.$emit("add")
+  store.commit('edit/addBox','Title')
 }
+
 
 </script>
 <style lang="scss">

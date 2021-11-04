@@ -1,9 +1,8 @@
 <template>
     <div class="Drag" :style="$store.getters['edit/style']"
-    @mousedown="drawingMousedown"
-    @click="drawclick"
-    @mousemove="mousemove"
-    id="drawing"
+        @click="drawclick"
+        @mousemove="mousemove"
+        id="drawing"
     >
         <Tree :data="$store.state.edit.treeData" />
     </div>
@@ -11,56 +10,27 @@
 <script lang="ts">
 import { defineComponent,provide} from "vue";
 import Tree from "./component/tree.vue";
-import hooks from "./hooks";
+import hooks from "./index";
 import Bus from "@/Bus"
 export default defineComponent({
     components: {
     Tree,
     },
     setup(props,context) {
-    // const {
-    //     state,
-    //     mousemove,
-    //     selectMousedown,
-    //     mouseup,
-    //     addData,
-    //     copy,
-    //     drawclick,
-    //     deleteBox,
-    //     preserve,
-    //     contextmenu,
-    //     right,
-    //     ok,
-    //     drawingMousedown,
-    //     gropOk,
-    //     cancel,
-    //     rightClick,
-    //     layoutSize
-    //     } = hooks(context);
-    //     //依赖注入
-    //     provide('selectMousedown',selectMousedown);
-    //     provide('mouseup',mouseup);
-    //     Bus.$on('add',()=>{
-    //         console.log("我接受到了请求")
-    //         addData("Title",'标题')
-    //     })
-    // return {
-    //     state,
-    //     mousemove,
-    //     drawclick,
-    //     addData,
-    //     preserve,
-    //     contextmenu,
-    //     right,
-    //     ok,
-    //     drawingMousedown,
-    //     gropOk,
-    //     cancel,
-    //     copy,
-    //     deleteBox,
-    //     rightClick,
-    //     layoutSize
-    //     };
+    const {
+
+        mousemove,
+        selectMousedown,
+        mouseup,
+        drawclick,
+        } = hooks(context);
+        //依赖注入
+        provide('selectMousedown',selectMousedown);
+        provide('mouseup',mouseup);
+    return {
+        mousemove,
+        drawclick,
+        };
     }
 })
 </script>
@@ -71,6 +41,7 @@ export default defineComponent({
     // transform:scale(3,3);
     transform-origin: 0px 0px 0;
     position: absolute;
+    overflow: hidden;
     left: 40px;
     top:40px;
     background-image: linear-gradient(

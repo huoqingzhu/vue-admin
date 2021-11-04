@@ -20,7 +20,7 @@ import {
   ElRate,
   ElColorPicker
 } from 'element-plus';
-
+import VCollapse from "@/VComponents/VCollapse/index.vue"
 // 新增 导出
 const IconFont = createFromIconfontCN({
     scriptUrl:IconUrl
@@ -41,6 +41,7 @@ const ant = {
     Vue.component( ElForm.name,ElForm)
     Vue.component( ElFormItem.name,ElFormItem)
     Vue.component(ElRate.name,ElRate)
+    Vue.component(VCollapse.name,VCollapse)
     Vue.use(ElDropdown)
     Vue.use(ElInput)
     Vue.use(ElMenu)

@@ -10,7 +10,7 @@
     @mousedown.stop="mousedown"
     @mouseup="mouseup"
   >
-    <div v-show="select" >
+    <div v-show="select" style="z-index: 3;">
       <div class="operate-hor-line"></div>
       <div class="operate-ver-line"></div>
       <div class="scale scale-nw" data-direction="nw"></div>
@@ -28,6 +28,7 @@
 <script lang="ts">
 import { computed, defineComponent, PropType, ref } from "vue";
 import { useStore } from "vuex";
+import {key} from "@/store"
 import { style } from "../../type";
 export default defineComponent({
   emits: {
@@ -56,12 +57,11 @@ export default defineComponent({
     },
   },
   setup(props, ctx) {
-    const store = useStore();
+    const store = useStore(key);
     const box = ref(null);
     const delIcons = ref(false);
     const mousedown = (e: any) => {
       const direction = e.target.getAttribute("data-direction");
-      console.log("mousedown");
       ctx.emit("mousedown", {
         id: props.name,
         target: e,
@@ -113,7 +113,7 @@ export default defineComponent({
 
 }
 .box:hover {
-  border: 2px solid #e2bc11;
+  // border: 1px solid #e2bc11;
   cursor: move;
 }
 .deleleIcon {
@@ -138,7 +138,7 @@ export default defineComponent({
 .operate-ver-line::after {
   content: "";
   position: absolute;
-  border-color: #f58220;
+  border-color: #3a89fe;
   border-style:solid;
   border-width: 0px;
   z-index: 99;
@@ -197,7 +197,7 @@ export default defineComponent({
   cursor: se-resize;
 }
 .scale-n {
-  top: -2px;
+  top: -3px;
   left: 50%;
   margin-left: -5px;
 

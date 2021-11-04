@@ -3,7 +3,7 @@ import {InjectionKey} from "vue"
 import login from "./modules/login"
 import app from "./modules/app"
 import lockscreen from './modules/lockscreen'
-import edit from "./modules/edit"
+import edit from "./modules/Edit/edit"
 import {State} from "./type"
 export const key:InjectionKey<Store<State>>=Symbol();
 export default createStore({
@@ -26,7 +26,6 @@ export default createStore({
       search:'1',
       mode:1,
       full:true,
-      colorList:['#4BE4E7','#1DB7E7','#FFAB48','#F87473',"#5B9AF3","#5B9AF3","#C8C36C",'#9C4C54']//不同风格的不同颜色组合
     },
   },
   mutations: { 
