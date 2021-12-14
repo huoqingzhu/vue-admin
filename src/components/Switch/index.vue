@@ -1,5 +1,5 @@
 <template>
-  <icon-svg :type="type" :style="{fontSize:size}" @click="change" />
+  <icon-svg :type="type" :style="{fontSize:size,color:color}" @click="change" />
 </template>
 <script lang="ts"  >
   import { defineComponent } from "vue";
@@ -17,6 +17,10 @@
         type:String,
         default:'30px'
       },
+      color:{
+        type:String,
+        default:'#fff'
+      }
       
     },
     emits: ['change','update:value'],

@@ -196,6 +196,26 @@ const deepUntie=(data:any,list:any=[])=>{
     return arr
 }
 /**
+ * 根据权限获取对应的route树
+ * 不可传$router实例,否则会改变$router
+ * @param {*} data 当前一级路由的children
+ * @param {*} role 用户权限
+ * @returns
+ */
+const getRouterTree = (data: any[], role = 1) => {
+  data.forEach((item, index, arr) => {
+    if (!item.meta?.role) return;
+    if (item.meta.role.indexOf(role) === -1) {
+      arr.splice(index, 1);
+    } else {
+      if (item.children && item.children.length) {
+        getRouterTree(item.children, role);
+      }
+    }
+  });
+  return data;
+};
+/**
  * 递归删除id
  * @param data 
  * @param ID 
@@ -249,4 +269,15 @@ const makeNumber=(list:any[]):number[]=>{
       return Math.floor(Number(item) * 100) / 100 
     })
 }
-export {debounce,DeepCopy,decideType,deepEach,deepUntie,deepDelete,isPhone,getQuery,makeNumber}
+export {
+    debounce,
+    DeepCopy,
+    decideType,
+    deepEach,
+    deepUntie,
+    deepDelete,
+    isPhone,
+    getQuery,
+    makeNumber,
+    getRouterTree
+  }

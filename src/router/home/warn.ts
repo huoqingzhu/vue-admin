@@ -1,5 +1,5 @@
 export default    {
-  path: "/map",
+  path: "map",
   name: "Map",
   sort:2,
   meta: {

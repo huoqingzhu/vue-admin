@@ -3,7 +3,7 @@ import {appType,State,device} from "../type"
 const state:appType = {
   device:device.desktop,//是否为手机
   isCollapse: localStorage.getItem('isCollapse')=='0',//false是否关闭  ，false 为展开的意思
-  active:localStorage.getItem('active')||"/main",//默认路由位置
+  active:localStorage.getItem('active')||"/",//默认路由位置
   show:true,//侧边蓝是否隐藏
 }
 const getters={

@@ -1,6 +1,6 @@
 
 export default    {
-  path: "/three",
+  path: "three",
   name: "Three",
   sort:6,
   meta: {
@@ -10,7 +10,7 @@ export default    {
   },
   component: () => import("@/views/3D/index.vue"),
   children:[{
-    path: "/maps",
+    path: "maps",
     name: "Maps",
     sort:1,
     meta: {
@@ -21,7 +21,7 @@ export default    {
     component: () => import("@/views/3D/page/Map/index.vue"),
   },
   {
-    path: "/particle",
+    path: "particle",
     name: "Particle",
     sort:1,
     meta: {
@@ -32,7 +32,7 @@ export default    {
     component: () => import("@/views/3D/page/Particle/index.vue"),
   },
   {
-    path: "/sky",
+    path: "sky",
     name: "Sky",
     sort:1,
     meta: {
@@ -43,7 +43,7 @@ export default    {
     component: () => import("@/views/3D/page/Sky/index.vue"),
   },
   {
-    path: "/slow",
+    path: "slow",
     name: "Slow",
     sort:1,
     meta: {
@@ -54,7 +54,7 @@ export default    {
     component: () => import("@/views/3D/page/Slow/index.vue"),
   },
   {
-    path: "/tarck",
+    path: "tarck",
     name: "Tarck",
     sort:1,
     meta: {

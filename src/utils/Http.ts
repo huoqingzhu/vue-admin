@@ -1,5 +1,5 @@
 /**
-   * 
+   * 自定义Http请求
    * @param url string
    * @param params obj
    * @param methods string

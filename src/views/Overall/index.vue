@@ -1,7 +1,11 @@
 <template>
-      <router-view    
+  <router-view
+        v-slot="{ Component }"
       >
-    </router-view>
+        <transition name="fade-transform" mode="out-in">
+              <component :is="Component" />
+          </transition>
+      </router-view>
 </template>
 <script lang="ts" >
 import { defineComponent } from "vue";

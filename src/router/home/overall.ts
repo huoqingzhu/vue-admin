@@ -1,5 +1,5 @@
 export default    {
-  path: "/overall",
+  path: "overall",
   name: "Overall",
   sort:3,
   meta: {
@@ -9,7 +9,7 @@ export default    {
   },
   component: () => import("@/views/Overall/index.vue"),
   children:[{
-    path: "/page1",
+    path: "page1",
     name: "page1",
     sort:1,
     meta: {
@@ -20,7 +20,7 @@ export default    {
     component: () => import("@/views/Overall/page/page.vue"),
   },
   {
-    path: "/page2",
+    path: "page2",
     name: "page2",
     sort:1,
     meta: {
@@ -32,7 +32,7 @@ export default    {
   
   },
   {
-    path: "/m3u8",
+    path: "m3u8",
     name: "m3u8",
     sort:1,
     meta: {
@@ -44,7 +44,7 @@ export default    {
   
   },
   {
-    path: "/evalute",
+    path: "evalute",
     name: "evalute",
     sort:1,
     meta: {
@@ -55,7 +55,7 @@ export default    {
     component: () => import("@/views/Overall/page/evaluate.vue"),
   },
   {
-    path: "/test",
+    path: "test",
     name: "test",
     sort:1,
     meta: {

@@ -1,5 +1,0 @@
-const modules = import.meta.globEager('./svg/*.svg')
-Object.values(modules)
-console.log(Object.values(modules))
-// const requireAll = (requireContext:any) => requireContext.keys().map(requireContext)
-// requireAll(req)

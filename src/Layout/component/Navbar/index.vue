@@ -1,11 +1,11 @@
 <template>
-  <div class="navbar">
+  <div class="navbar" :style="{backgroundColor:variables.navbarBg}">
     <div class="center shen">
       <change-button></change-button>
     </div>
     <div class="center user">
-      <Switch :list="['icon-suo-','icon-suo-']" size="24px" @change="lockScreen" />
-      <Switch :list="['icon-quanping','icon-quxiaoquanping']" @change="screen" />
+      <Switch :list="['icon-suo-','icon-suo-']" size="24px" :color="variables.navbarText" @change="lockScreen" />
+      <Switch :list="['icon-quanping','icon-quxiaoquanping']" :color="variables.navbarText" @change="screen" />
       <el-dropdown trigger="click">
           <span class="el-dropdown-link">
             <img src="@/assets/user.gif" alt="">
@@ -26,6 +26,7 @@
 import { defineComponent} from "vue";
 import changeButton from "./changeButton.vue";
 import Switch from "@/components/Switch/index.vue";
+import {variables} from "@/cofing/index"
 import {key} from "@/store"
 import {useRouter} from "vue-router"
 import {useStore}  from "vuex"
@@ -56,7 +57,8 @@ export default defineComponent({
     return {
       signOut,
       screen,
-      lockScreen
+      lockScreen,
+      variables
     }
   },
 });

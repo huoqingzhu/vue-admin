@@ -1,32 +1,37 @@
 
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-const modules = import.meta.globEager('./home/*.ts')
-const tree= {
-  path: "/tree",
-  name: "Tree",
-  meta: {
-    title: "拖拽",
-    keepAlive: true,
-    iocn: "icon-tree",
-    blank:true
-  },
-  component: () => import("@/views/Tree/index.vue"),
-}
-const routerList = Object.values(modules).map((item:any)=>item.default).sort((a,b)=>a.sort-b.sort);
-export type List =typeof routerList;
-const redirect=localStorage.getItem('active')||"/main"
-
+import adminbLayout from "../Layout/index.vue";
+/**
+ * 路由权限 sole字段采取数组格式 如果用户命中sole，则代表有权限,
+ * 没有sole字段的路由则代表任何用户都能访问,子路由就不会做权限判断了
+ */
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
+    name: "主页",
+    redirect: "/home/main",
+  },
+  {
+    path: "/home",
     name: "Home",
-    redirect,
+    redirect: "/home/main",
     meta: {
       title: "首页",
       keepAlive: true
     },
-    component: () => import("../Layout/index.vue"),
-    children:routerList
+    component:adminbLayout,
+    children:getList(import.meta.globEager('./home/*.ts'))
+  },{
+    path: "/resources",
+    component: adminbLayout,
+    name: "资源接入子系统",
+    meta: {
+      title: "资源接入子系统",
+      keepAlive: true,
+      sole:[0,1]
+    },
+    redirect: "/resources/market",
+    children:getList(import.meta.globEager('./resources/*.ts'))
   },
   {
     path: "/login",
@@ -37,13 +42,22 @@ const routes: Array<RouteRecordRaw> = [
     },
     component: () => import("../views/Login/index"),
   },
+  {
+    path: "/404",
+    component: () => import("../views/404.vue"),
+  },
+  // 404 page must be placed at the end !!!
+  { 
+    path: "/:pathMatch(.*)",
+    redirect: "/404" 
+  },
 
 ];
-routes.push(tree)
-routerList.push(tree)
 const router = createRouter({
   history: createWebHashHistory(),
   routes
 });
-export {routerList};
+function getList(modules: any){
+  return Object.values(modules).map((item:any)=>item.default).filter(item=>item).sort((a,b)=>a.sort-b.sort);
+}
 export default router;

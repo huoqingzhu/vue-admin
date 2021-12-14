@@ -91,7 +91,6 @@ export interface overall{
   adsorbent:{row:number,column:number,space:number,width:number,height:number},
 }
 export interface State {
-  num:number,
   overall:overall,
   app:appType
   lockscreen:ILockscreenState,

@@ -1,5 +1,5 @@
 export default    {
-  path: "/main",
+  path: "main",
   name: "Main",
   sort:0,
   meta: {

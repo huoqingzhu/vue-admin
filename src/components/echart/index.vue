@@ -74,7 +74,6 @@ export default defineComponent({
       default:80
     }
   },
-  name:"v-echart",
   setup(props: any) {
     const charts: any = ref(null);
     let myChart: any;

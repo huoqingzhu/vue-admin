@@ -1,19 +1,22 @@
 <template>
   <div :class="$store.getters['app/className']">
     <Navbar  />
-    <router-view
+
+      <router-view
         v-slot="{ Component }"
       >
-        <keep-alive :exclude="exclude">
+          <transition name="fade-transform" mode="out-in">
+            <keep-alive :include="[]">
             <component :is="Component" />
-        </keep-alive>
-    </router-view>
+            </keep-alive>
+          </transition>
+      </router-view>
   </div>
 </template>
 <script lang="ts" setup>
 import Navbar from "./Navbar/index.vue"
-import {routerList} from "@/router/index"
-const exclude=routerList.filter(item=>!item.meta.keepAlive).map(item=>item.name)
+// import {resourceList} from "@/router/index"
+// const exclude=resourceList.filter(item=>!item.meta.keepAlive).map(item=>item.name)
 </script>
 <style lang="scss" scoped>
 .main{

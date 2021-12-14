@@ -1,8 +1,9 @@
 <template>
-  <icon-svg :type="type" style="font-size: 22px;" @click="change" />
+  <icon-svg :type="type" :style="{fontSize: '22px',color:variables.menuText}"  @click="change" />
 </template>
 <script lang="ts" >
   import { defineComponent } from "vue";
+  import {variables} from "@/cofing/index"
   export default defineComponent({
     data(){
       return { 
@@ -18,6 +19,9 @@
       type(){
         return this.$store.state.app.isCollapse?'icon-toggle-right':'icon-toggle-left';
       }
+    },
+    setup(){
+      return {variables}
     }
   });
   </script>

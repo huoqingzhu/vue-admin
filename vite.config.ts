@@ -11,23 +11,23 @@ import path from 'path'
 const esModule=true;//默认打包esModule 版本 不进行 polyfill
 const Polyfill=false; //是否兼容ie11  默认不兼容
 const plugins=[vue(),vueJsx()]
-plugins.push(
-  styleImport({
-    libs: [
-      {
-        libraryName: 'element-plus',
-        esModule: true,
-        ensureStyleFile: true,
-        resolveStyle: (name) => {
-          return `element-plus/lib/theme-chalk/${name}.css`;
-        },
-        resolveComponent: (name) => {
-          return `element-plus/lib/${name}`;
-        },
-      }
-  ]
-  })
-)
+// plugins.push(
+//   styleImport({
+//     libs: [
+//       {
+//         libraryName: 'element-plus',
+//         esModule: true,
+//         ensureStyleFile: true,
+//         resolveStyle: (name) => {
+//           return `element-plus/lib/theme-chalk/${name}.css`;
+//         },
+//         resolveComponent: (name) => {
+//           return `element-plus/lib/${name}`;
+//         },
+//       }
+//   ]
+//   })
+// )
  //生产环境配置打包分析插件
 if(process.env.NODE_ENV){
   console.log("打包环境")
@@ -97,7 +97,7 @@ export default defineConfig({
     port:3000,//启动端口
     open: true,
     proxy:{ 
-      '/api': 'http://xiaohuo.online:2000'//http://localhost:8888/ https://xiaohuo.online
+      '/api': 'https://xiaohuo.online'//http://localhost:8888/ https://xiaohuo.online
     }, 
     cors:true
   },
