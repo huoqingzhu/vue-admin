@@ -9,19 +9,18 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "主页",
-    redirect: "/home/main",
+    redirect: "/main",
   },
   {
-    path: "/home",
-    name: "Home",
-    redirect: "/home/main",
+    path: "/main",
+    name: "main",
     meta: {
       title: "首页",
       keepAlive: true
     },
-    component:adminbLayout,
-    children:getList(import.meta.globEager('./home/*.ts'))
-  },{
+    component: () => import("../views/Book/index.vue"),
+  },
+  {
     path: "/resources",
     component: adminbLayout,
     name: "资源接入子系统",
@@ -33,24 +32,7 @@ const routes: Array<RouteRecordRaw> = [
     redirect: "/resources/market",
     children:getList(import.meta.globEager('./resources/*.ts'))
   },
-  {
-    path: "/book",
-    name: "Book",
-    meta: {
-      title: "Book",
-      keepAlive: true
-    },
-    component: () => import("../views/Book/index.vue"),
-  },
-  {
-    path: "/edit",
-    name: "Edit",
-    meta: {
-      title: "Edit",
-      keepAlive: true
-    },
-    component: () => import("../views/Edit/index.vue"),
-  },
+
   {
     path: "/login",
     name: "login",

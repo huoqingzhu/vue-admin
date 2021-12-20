@@ -21,7 +21,6 @@ const mutations = {
     state.device=device;
     if(device){
       state.show=false;
-      console.log("移动端关闭",state.show)
     }
   },
   changeShow(state:appType,show:boolean):void {
@@ -39,11 +38,7 @@ const mutations = {
     state.isCollapse=type
   }
 }
-
-const actions = {
-
-}
-
+const actions = {}
 export default {
   namespaced: true,
   state,

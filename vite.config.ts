@@ -3,9 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import styleImport from 'vite-plugin-style-import'
 import visualizer from 'rollup-plugin-visualizer';
 import { terser } from "rollup-plugin-terser";
-import compressPlugin from 'vite-plugin-compression';//上线压缩
 import vueJsx from '@vitejs/plugin-vue-jsx'//jsx
-// import viteImagemin from 'vite-plugin-imagemin';//压缩图片
 import legacy from '@vitejs/plugin-legacy'//代码兼容
 import path from 'path'
 const esModule=true;//默认打包esModule 版本 不进行 polyfill
@@ -38,44 +36,6 @@ if(process.env.NODE_ENV){
   }));
   // 开启智能压缩 删除console
   plugins.push(terser({ compress: { drop_console: true } }));
-  // 开启压缩
-  // plugins.push(
-  //   compressPlugin({
-  //     ext: '.gz',//gz br
-  //     algorithm: 'gzip', //brotliCompress gzip
-  //     deleteOriginFile:false
-  //   })
-  // );
-
-  // plugins.push( viteImagemin({
-  //   gifsicle: {
-  //     optimizationLevel: 7,
-  //     interlaced: false,
-  //   },
-  //   optipng: {
-  //     optimizationLevel: 7,
-  //   },
-  //   webp: {
-  //     quality: 75,
-  //   },
-  //   mozjpeg: {
-  //     quality: 65,
-  //   },
-  //   pngquant: {
-  //     quality: [0.65, 0.9],
-  //     speed: 4,
-  //   },
-  //   svgo: {
-  //     plugins: [
-  //       {
-  //         removeViewBox: false,
-  //       },
-  //       {
-  //         removeEmptyAttrs: false,
-  //       },
-  //     ],
-  //   },
-  // }))
   esModule?null:plugins.push(
     Polyfill?legacy({
       targets: ['ie >= 11'],

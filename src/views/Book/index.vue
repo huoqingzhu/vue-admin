@@ -19,8 +19,6 @@
 <script lang="ts" setup>
 import {ref} from "vue"
 import Editor from "./components/Editor.vue" 
-import Drag from './components/Drag.vue'
-import DragItem from './components/DragItem.vue'
 const code = ref(`
 <template>
     <div class="code">
