@@ -202,19 +202,27 @@ const deepUntie=(data:any,list:any=[])=>{
  * @param {*} role 用户权限
  * @returns
  */
-const getRouterTree = (data: any[], role = 1) => {
-  data.forEach((item, index, arr) => {
-    if (!item.meta?.role) return;
-    if (item.meta.role.indexOf(role) === -1) {
-      arr.splice(index, 1);
+const getRouterTree = (data, role = 1) => {
+  let i = 0;
+  const length = data.length;
+  for (let k = 0; k < length; k++) {
+    const meta = data[i]?.meta;
+    if (!meta) break;
+    if (!meta?.role && !meta?.hide) break;
+    if (meta.role.indexOf(role) === -1 || meta?.hide) {
+      data.splice(i, 1);
+      i = i - 1;
     } else {
-      if (item.children && item.children.length) {
-        getRouterTree(item.children, role);
+      if (data[i].children && data[i].children.length) {
+        getRouterTree(data[i].children, role);
       }
     }
-  });
+    i = i + 1;
+  }
+
   return data;
 };
+
 /**
  * 递归删除id
  * @param data 

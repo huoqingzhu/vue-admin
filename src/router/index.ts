@@ -34,6 +34,24 @@ const routes: Array<RouteRecordRaw> = [
     children:getList(import.meta.globEager('./resources/*.ts'))
   },
   {
+    path: "/book",
+    name: "Book",
+    meta: {
+      title: "Book",
+      keepAlive: true
+    },
+    component: () => import("../views/Book/index.vue"),
+  },
+  {
+    path: "/edit",
+    name: "Edit",
+    meta: {
+      title: "Edit",
+      keepAlive: true
+    },
+    component: () => import("../views/Edit/index.vue"),
+  },
+  {
     path: "/login",
     name: "login",
     meta: {

@@ -85,6 +85,9 @@ if(process.env.NODE_ENV){
     })
   )
 }
+
+const prefix = `monaco-editor/esm/vs`;
+
 export default defineConfig({
   plugins: plugins,
   base:"./",//打包路径
@@ -105,7 +108,20 @@ export default defineConfig({
     modules:{
       localsConvention:'camelCaseOnly'
     }
-  }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          jsonWorker: [`${prefix}/language/json/json.worker`],
+          cssWorker: [`${prefix}/language/css/css.worker`],
+          htmlWorker: [`${prefix}/language/html/html.worker`],
+          tsWorker: [`${prefix}/language/typescript/ts.worker`],
+          editorWorker: [`${prefix}/editor/editor.worker`],
+        },
+      },
+    },
+  },
 })
 
 
