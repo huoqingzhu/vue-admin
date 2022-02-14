@@ -57,6 +57,11 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes
 });
+/**
+ * 动态加载文件下的子路由
+ * @param modules 
+ * @returns 
+ */
 function getList(modules: any){
   return Object.values(modules).map((item:any)=>item.default).filter(item=>item).sort((a,b)=>a.sort-b.sort);
 }

@@ -277,6 +277,16 @@ const makeNumber=(list:any[]):number[]=>{
       return Math.floor(Number(item) * 100) / 100 
     })
 }
+/**
+ * 根据文件名获取文件类型
+ * @param file_path 
+ * @returns 
+ */
+const checkLanguage = (file_path: string): string => {
+  if (file_path.indexOf('.') == -1) return ''
+  const arr = file_path.split('.')
+  return arr[arr.length - 1]
+}
 export {
     debounce,
     DeepCopy,
@@ -287,5 +297,6 @@ export {
     isPhone,
     getQuery,
     makeNumber,
-    getRouterTree
+  getRouterTree,
+  checkLanguage
   }

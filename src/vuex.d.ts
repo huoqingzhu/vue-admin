@@ -1,4 +1,3 @@
-import { ComponentCustomProperties } from 'vue'
 import { Store } from 'vuex'
 import {State} from '@/store/type'
 declare module '@vue/runtime-core' {

@@ -94,5 +94,10 @@ export interface State {
   overall:overall,
   app:appType
   lockscreen:ILockscreenState,
-  edit:Edit
+  edit: Edit,
+  code:Code
+}
+export interface Code{
+  code: string,
+  filename:string
 }

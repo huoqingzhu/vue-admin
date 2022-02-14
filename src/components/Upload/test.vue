@@ -23,7 +23,7 @@ import { defineComponent, reactive, toRefs } from "vue";
 import { upload } from "../../api/index";
 import { url } from "../../utils/cofing";
 import { message } from "ant-design-vue";
-import { LoadingOutlined } from "@ant-design/icons-vue";
+// import { LoadingOutlined } from "@ant-design/icons-vue";
 import axios from "axios";
 export default defineComponent({
   props: {

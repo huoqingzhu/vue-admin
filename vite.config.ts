@@ -1,31 +1,21 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import styleImport from 'vite-plugin-style-import'
 import visualizer from 'rollup-plugin-visualizer';
 import { terser } from "rollup-plugin-terser";
 import vueJsx from '@vitejs/plugin-vue-jsx'//jsx
 import legacy from '@vitejs/plugin-legacy'//代码兼容
 import path from 'path'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+
 const esModule=true;//默认打包esModule 版本 不进行 polyfill
 const Polyfill=false; //是否兼容ie11  默认不兼容
-const plugins=[vue(),vueJsx()]
-// plugins.push(
-//   styleImport({
-//     libs: [
-//       {
-//         libraryName: 'element-plus',
-//         esModule: true,
-//         ensureStyleFile: true,
-//         resolveStyle: (name) => {
-//           return `element-plus/lib/theme-chalk/${name}.css`;
-//         },
-//         resolveComponent: (name) => {
-//           return `element-plus/lib/${name}`;
-//         },
-//       }
-//   ]
-//   })
-// )
+const plugins = [vue(), vueJsx(),
+  createSvgIconsPlugin({
+  // config svg dir that can config multi
+  iconDirs: [path.resolve(process.cwd(), 'src/icons/common'), path.resolve(process.cwd(), 'src/icons/nav-bar')],
+  // appoint svg icon using mode
+  symbolId: 'icon-[dir]-[name]'
+}),]
  //生产环境配置打包分析插件
 if(process.env.NODE_ENV){
   console.log("打包环境")
@@ -57,10 +47,10 @@ export default defineConfig({
     }
   },
   server:{
-    port:3000,//启动端口
+    port:9000,//启动端口
     open: true,
     proxy:{ 
-      '/api': 'https://xiaohuo.online'//http://localhost:8888/ https://xiaohuo.online
+      '/api': 'http://localhost:8888'//http://localhost:8888/ https://xiaohuo.online
     }, 
     cors:true
   },
