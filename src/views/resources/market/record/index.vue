@@ -1,6 +1,6 @@
 <template>
-  <div>数据资源</div>
+  <Table />
 </template>
 <script setup lang="ts">
-
+import {Table} from '@com/Table'
 </script>
