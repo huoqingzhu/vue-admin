@@ -6,14 +6,12 @@
         @preservation="preservation"
         ></Editor>
         <template v-slot:bar> <Bar /></template>
-        <template v-slot:console>控制台
-              <SvgIcon name="eye" color="pink" style="font-size: 2rem;"></SvgIcon>
+        <template v-slot:console>控制台 <SvgIcon name="eye" color="pink" style="font-size: 2rem;"></SvgIcon>
         </template>
     </Layout>
 </template>
 <script lang="ts" setup>
 import Layout from "./Layout/index.vue"
-import {ref} from "vue"
 import Editor from "./modules/Editor/Editor.vue" 
 import Bar from "./modules/Bar/index.vue"
 import {defaultViewThemeConfig} from "@/cofing"
