@@ -43,7 +43,8 @@ export default defineConfig({
   base:"./",//打包路径
   resolve: {
     alias:{
-      '@': path.resolve(__dirname, './src')//设置别名
+      '@': path.resolve(__dirname, './src'),//设置别名
+      'com':path.resolve(__dirname, './MY-Kit/packages')
     }
   },
   server:{
