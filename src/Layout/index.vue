@@ -1,73 +1,28 @@
 <template>
-  <div class="App">
-    <div
-      v-if="$store.state.app.device && $store.state.app.show"
-      class="drawer-bg"
-      @click="handleClickOutside"
-    />
-    <!-- <div style="width:100%;height:100%;position:absolute;background-color: #000;z-index: 999;color: #fff;">锁屏</div> -->
-    <transition name="slide-fade" v-if="$store.state.app.device ">
-      <Sidebar 
-        v-show="$store.state.app.show"
-        :class="[$store.state.app.device?'sidebar-container':'']"  />
-    </transition>
-    <Sidebar 
-      v-else
-      :class="[$store.state.app.device?'sidebar-container':'']"  />
-    <AppMain />
-  </div>
+  <Layout :list="list" title="信息化项目全流程管理"  />
 </template>
-<script lang="ts">
-import { defineComponent} from "vue";
-import Sidebar from "./component/Sidebar/index.vue"
-import AppMain from "./component/AppMain.vue";
-import size from "./size"
+<script lang="ts" setup>
+import {Layout} from "@com/Layout"
+import {Edit,Avatar,Football} from "@element-plus/icons-vue"
 
-export default defineComponent({
-  components:{
-    Sidebar,
-    AppMain,
+const list:any[]=[
+  {
+    path: "/test",
+    meta:{title:"测试1",icon:Edit},
   },
-  methods:{
-    handleClickOutside(){
-      this.$store.commit('app/changeShow',false)
-    }
+  {
+    path: "/test2",
+    meta:{title:"测试2",icon:Edit},
   },
-  setup() {
-    size()
+  {
+    path: "/test3",
+    meta:{title:"测试3",icon:Edit},
+    children: [
+      { path: "/test-1", meta:{title:"一级子路1",icon:Avatar}},
+      { path: "/test-2", meta:{title:"一级子路2",icon:Avatar},children:[
+        { path: "/test-1-1", meta:{title:"二级级子路1",icon:Football}}
+      ]}
+    ]
   },
-});
+]
 </script>
-<style lang="scss" scoped>
-.App{
-  width: 100%;
-  height: 100%;
-  // background-color: pink;
-  display: flex;
-  overflow: hidden;
-  overflow-x: auto;
-  position: relative;
-}
-.drawer-bg {
-  background: #000;
-  opacity: 0.3;
-  width: 100%;
-  top: 0;
-  height: 100%;
-  position: absolute;
-  z-index: 999;
-}
-.slide-fade-enter-active {
-  transition: all 0.2s ease-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(-200px);
-  // opacity: 0;
-}
-</style>

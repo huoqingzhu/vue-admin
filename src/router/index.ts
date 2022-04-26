@@ -9,16 +9,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "主页",
-    redirect: "/main",
-  },
-  {
-    path: "/main",
-    name: "main",
-    meta: {
-      title: "首页",
-      keepAlive: true
-    },
-    component: () => import("../views/Book/index.vue"),
+    redirect: "/resources",
   },
   {
     path: "/resources",
@@ -32,7 +23,6 @@ const routes: Array<RouteRecordRaw> = [
     redirect: "/resources/market",
     children:getList(import.meta.globEager('./resources/*.ts'))
   },
-
   {
     path: "/login",
     name: "login",
