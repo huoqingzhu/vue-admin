@@ -2,5 +2,5 @@
   <Table />
 </template>
 <script setup lang="ts">
-import {Table} from '@com/Table'
+import {Table} from '@m/Table'
 </script>

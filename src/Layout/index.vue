@@ -2,7 +2,7 @@
   <Layout :list="list" title="信息化项目全流程管理"  />
 </template>
 <script lang="ts" setup>
-import {Layout} from "@com/Layout"
+import {Layout} from "@m/Layout"
 import {Edit,Avatar,Football} from "@element-plus/icons-vue"
 
 const list:any[]=[
