@@ -12,6 +12,7 @@
     "lib": ["esnext", "dom"],
     "paths": {
       "@/*": ["src/*"],
+      "@m/*": ["Pole/packages/*"],
     },
     "types": ["element-plus/global"]
   },
