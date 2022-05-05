@@ -3,8 +3,8 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
-declare interface user{
-  username:string,
-  password:string,
-  token:string
+declare global {  //设置全局属性
+  interface Window {  //window对象属性
+    CONFIG: boolean;   //加入对象
+  }
 }

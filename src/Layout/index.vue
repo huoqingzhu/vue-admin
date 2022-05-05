@@ -1,10 +1,16 @@
 <template>
-  <Layout :list="list" title="信息化项目全流程管理"  />
+  <Layout :list="routerList" title="信息化项目全流程管理"  />
 </template>
 <script lang="ts" setup>
 import {Layout} from "@m/Layout"
 import {Edit,Avatar,Football} from "@element-plus/icons-vue"
+import {computed} from "vue"
+import { useRouter } from "vue-router";
 
+const props = defineProps({
+  rootRoutePath: { type: String, required: true },
+  systemTitle:  { type: String, required: true },
+})
 const list:any[]=[
   {
     path: "/test",
@@ -25,4 +31,10 @@ const list:any[]=[
     ]
   },
 ]
+const router=useRouter()
+const routerList=computed(()=>{
+  let list = router?.options.routes.find((x) => x.path == props.rootRoutePath).children;
+      console.log(list);
+      return list||[];
+})
 </script>
