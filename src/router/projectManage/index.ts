@@ -1,6 +1,7 @@
 import Layout from "@/Layout/index.vue";
+import type { RouteRecordRaw} from "vue-router"
 // 项目管理子系统-路由页面
-let router = [
+let router: RouteRecordRaw[] = [
   {
     path: "/projectManage",
     component: Layout,

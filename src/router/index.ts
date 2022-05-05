@@ -3,7 +3,7 @@ import { createRouter, createWebHashHistory,  } from "vue-router";
 import type { RouteRecordRaw} from "vue-router"
 import { getToken, getUserInfo} from "@/utils/auth"; // get token from cookie
 import projectManage from "./projectManage"
-
+const redirect="/projectManage"
 
 
 /**
@@ -14,30 +14,17 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "主页",
-    redirect: "/login",
+    redirect:redirect,
   },
   // {
-  //   path: "/resources",
-  //   component: adminbLayout,
-  //   name: "资源接入子系统",
+  //   path: "/login",
+  //   name: "login",
   //   meta: {
-  //     title: "资源接入子系统",
-  //     keepAlive: true,
-  //     sole:[0,1]
+  //     title: "登录页",
+  //     keepAlive: true
   //   },
-  //   props: { rootRoutePath: "/resources", systemTitle: "资源接入子系统" },
-  //   redirect: "/resources/market",
-  //   children:getList(import.meta.globEager('./resources/*.ts'))
+  //   component: () => import("../views/login/index.vue"),
   // },
-  {
-    path: "/login",
-    name: "login",
-    meta: {
-      title: "登录页",
-      keepAlive: true
-    },
-    component: () => import("../views/Login/index"),
-  },
   {
     path: "/404",
     component: () => import("../views/404.vue"),
@@ -47,8 +34,9 @@ const routes: Array<RouteRecordRaw> = [
     path: "/:pathMatch(.*)",
     redirect: "/404" 
   },
-
+  ...projectManage
 ];
+console.log(routes)
 const router = createRouter({
   history: createWebHashHistory(),
   routes
