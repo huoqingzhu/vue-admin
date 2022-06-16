@@ -46,9 +46,9 @@
 </template>
 
 <script lang="ts" setup>
-const message=()=> {
-      return "The webmaster said that you can not enter this page...";
-    }
+const message = () => {
+  return "The webmaster said that you can not enter this page...";
+};
 </script>
 
 <style lang="scss" scoped>

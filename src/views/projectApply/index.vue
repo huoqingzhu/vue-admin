@@ -4,19 +4,19 @@
 
 <script>
 export default {
-  name: "projectApply",
+  name: "ProjectApply",
+  components: {},
   data() {
     return {};
   },
   computed: {},
   watch: {},
-  methods: {},
   created() {},
   mounted() {
     this.$nextTick(() => {});
   },
-  components: {},
-  beforeDestroy() {},
+  beforeUnmount() {},
+  methods: {},
 };
 </script>
 

@@ -1,4 +1,3 @@
-
 <template>
   <svg class="svg-icon" aria-hidden="true">
     <use :xlink:href="`#${type}`"></use>
@@ -7,15 +6,14 @@
 
 <script lang="ts">
 export default {
-  name: 'icon-svg',
+  name: "icon-svg",
   props: {
-    type:{
+    type: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
-
-}
+};
 </script>
 
 <style scoped>
@@ -28,5 +26,3 @@ export default {
   cursor: pointer;
 }
 </style>
-
-

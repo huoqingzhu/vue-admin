@@ -1,16 +1,16 @@
 <template>
   <div class="collapse">
     <v-Icon type="icon-icon_sanjiaoxing" :style="style" @click="changeIcon" />
-      {{ title }}
+    {{ title }}
   </div>
   <div v-if="show" class="collapseCount">
-      <slot></slot>
+    <slot></slot>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 export default defineComponent({
-  name:'v-collapse',
+  name: "v-collapse",
   props: {
     title: {
       type: String,
@@ -49,7 +49,7 @@ export default defineComponent({
   height: 36px;
   line-height: 36px;
   padding: 0 10px;
-  border:1px solid #333;
+  border: 1px solid #333;
   background-color: #20222a;
 }
 .collapseCount {

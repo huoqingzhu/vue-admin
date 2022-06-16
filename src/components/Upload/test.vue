@@ -1,4 +1,3 @@
-
 <template>
   <div class="flex">
     <form action="" name="file" class="file">

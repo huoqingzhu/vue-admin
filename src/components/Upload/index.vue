@@ -1,7 +1,14 @@
-
 <template>
-  <div class="center upload" style="width:100%">
-    <Icon-font type="iconshangchuan" style="font-size: 20px;color:#fff;margin-left: -80px;position: absolute;"></Icon-font>
+  <div class="center upload" style="width: 100%">
+    <Icon-font
+      type="iconshangchuan"
+      style="
+        font-size: 20px;
+        color: #fff;
+        margin-left: -80px;
+        position: absolute;
+      "
+    ></Icon-font>
     <form action="" name="file" class="file">
       上传文件
       <input
@@ -12,10 +19,7 @@
         @change="ImageToBase64"
       />
     </form>
-    <a-spin
-      v-if="show"
-      style="width: 40px; height: 25px"
-    />
+    <a-spin v-if="show" style="width: 40px; height: 25px" />
   </div>
 </template>
 <script lang="ts">
@@ -43,7 +47,7 @@ export default defineComponent({
       const reader = new FileReader();
       reader.onload = function (event: any) {
         binary(event.target.result, {
-          filename:encodeURIComponent(files.name),
+          filename: encodeURIComponent(files.name),
           team_id: props.id,
         })
           .then((res: any) => {
@@ -61,7 +65,7 @@ export default defineComponent({
 });
 </script>
 <style lang="scss" scoped>
-.upload{
+.upload {
   position: relative;
   background-color: #009b47;
   border-radius: 8px;

@@ -1,10 +1,9 @@
+import { createRouter, createWebHashHistory } from "vue-router";
+import type { RouteRecordRaw } from "vue-router";
+import { getToken, getUserInfo } from "@/utils/auth"; // get token from cookie
+import projectManage from "./projectManage";
 
-import { createRouter, createWebHashHistory,  } from "vue-router";
-import type { RouteRecordRaw} from "vue-router"
-import { getToken, getUserInfo} from "@/utils/auth"; // get token from cookie
-import projectManage from "./projectManage"
-const redirect="/projectManage"
-
+const redirect = "/projectManage";
 
 /**
  * 路由权限 sole字段采取数组格式 如果用户命中sole，则代表有权限,
@@ -14,50 +13,47 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "主页",
-    redirect:redirect,
+    redirect,
   },
-  // {
-  //   path: "/login",
-  //   name: "login",
-  //   meta: {
-  //     title: "登录页",
-  //     keepAlive: true
-  //   },
-  //   component: () => import("../views/login/index.vue"),
-  // },
   {
     path: "/404",
     component: () => import("../views/404.vue"),
   },
   // 404 page must be placed at the end !!!
-  { 
+  {
     path: "/:pathMatch(.*)",
-    redirect: "/404" 
+    redirect: "/404",
   },
-  ...projectManage
+  ...projectManage,
 ];
-console.log(routes)
+console.log(routes);
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
 });
 /**
  * 动态加载文件下的子路由
- * @param modules 
- * @returns 
+ * @param modules
+ * @returns
  */
-function getList(modules: any){
-  return Object.values(modules).map((item:any)=>item.default).filter(item=>item).sort((a,b)=>a.sort-b.sort);
+function getList(modules: any) {
+  return Object.values(modules)
+    .map((item: any) => item.default)
+    .filter((item) => item)
+    .sort((a, b) => a.sort - b.sort);
 }
 // lijunqi，过滤出 当前用户可访问的路由页面（根据用户具有的角色列表）
-let filterRouterByRoles = (router:RouteRecordRaw[] = []) => {
+let filterRouterByRoles = (router: RouteRecordRaw[] = []) => {
   let userInfo = getUserInfo();
 
-  let filteredRouter:RouteRecordRaw[] = [];
+  let filteredRouter: RouteRecordRaw[] = [];
   for (let x of router) {
-    let isPermitted = userInfo?.roleCodeArr?.some((code:string) => {
-      return !x.meta?.roles || !x.meta?.length || (x.meta as {roles:string[]})?.roles.includes(code);
-    });
+    let isPermitted = userInfo?.roleCodeArr?.some(
+      (code: string) =>
+        !x.meta?.roles ||
+        !x.meta?.length ||
+        (x.meta as { roles: string[] })?.roles.includes(code)
+    );
     // console.log(x.path, isPermitted);
     if (isPermitted) {
       if (x?.children?.length) {
@@ -66,8 +62,6 @@ let filterRouterByRoles = (router:RouteRecordRaw[] = []) => {
       filteredRouter.push(x);
     }
   }
-
-  // console.log(333, filteredRouter);
   return filteredRouter;
 };
 export function addAsyncRouteByRole() {
@@ -82,8 +76,9 @@ export function addAsyncRouteByRole() {
       // if (userInfo?.roleCodeArr) {
       //   await store.dispatch("user/getUserInfo");
       // }
-      let asyncRouteMap = filterRouterByRoles([// 项目管理子系统
-          ...projectManage,
+      let asyncRouteMap = filterRouterByRoles([
+        // 项目管理子系统
+        ...projectManage,
       ]);
       // console.log(999, asyncRouteMap);
       router.addRoute(asyncRouteMap as unknown as RouteRecordRaw);

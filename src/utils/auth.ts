@@ -19,7 +19,7 @@ export function getToken() {
   return localStorage.getItem(Key1);
 }
 
-export function setToken(token:string) {
+export function setToken(token: string) {
   return localStorage.setItem(Key1, token);
 }
 
@@ -65,7 +65,7 @@ export function removeUserInfo() {
 //   addAsyncRouteByRole();
 // }
 
-export function setUserInfo(userInfo:any, roles = []) {
+export function setUserInfo(userInfo: any, roles = []) {
   let userRole = {
     isAdmin: false,
     isTenant: false,

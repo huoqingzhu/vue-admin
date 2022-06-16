@@ -1,26 +1,25 @@
 <template>
-  <router-view
-        v-slot="{ Component }"
-      >
-        <transition name="fade-transform" mode="out-in">
-              <component :is="Component" />
-          </transition>
-      </router-view>
+  <router-view v-slot="{ Component }">
+    <transition name="fade-transform" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </template>
-<script lang="ts" >
+<script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
-  created(){
-    console.log("我是父组件我执行了,created")
-    // window.onbeforeunload = event => {
+  created() {
+    console.log("我是父组件我执行了,created");
+    const a = 1;
+    //  window.onbeforeunload = event => {
     //         console.log('onbeforeload！！！！！')
     //         if (event) {
     //             event.returnValue = '关闭提示';
     //         }
     //     }
   },
-  mounted(){
-    console.log("我是父组件我执行了,mounted")
-  }
-})
+  mounted() {
+    console.log("我是父组件我执行了,mounted");
+  },
+});
 </script>

@@ -6,14 +6,15 @@
 </template>
 
 <script lang="ts" setup>
-
-const props= withDefaults(defineProps<{
-  tips: string
-  age: number
-}>(), {
-  tips: '虚位以待～～',
-})
-
+const props = withDefaults(
+  defineProps<{
+    tips: string;
+    age: number;
+  }>(),
+  {
+    tips: "虚位以待～～",
+  }
+);
 </script>
 
 <style lang="scss" src="./index.scss" scoped></style>

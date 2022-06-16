@@ -12,10 +12,16 @@
     "lib": ["esnext", "dom"],
     "paths": {
       "@/*": ["src/*"],
-      "@m/*": ["Pole/packages/*"],
+      "@m/*": ["Pole/packages/*"]
     },
     "types": ["element-plus/global"]
   },
 
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue","src/**/*.scss"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/**/*.scss"
+  ]
 }

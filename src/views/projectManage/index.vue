@@ -1,5 +1,5 @@
 <template>
-    <div>
-      {{$route.path}}
-    </div>
+  <div>
+    {{ $route.path }}
+  </div>
 </template>
