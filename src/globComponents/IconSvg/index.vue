@@ -1,19 +1,19 @@
 <template>
-  <svg class="svg-icon" aria-hidden="true">
-    <use :xlink:href="`#${type}`"></use>
-  </svg>
+    <svg class="svg-icon" aria-hidden="true">
+        <use :xlink:href="`#${type}`"></use>
+    </svg>
 </template>
 
 <script lang="ts">
 export default {
-  name: "icon-svg",
-  props: {
-    type: {
-      type: String,
-      required: true,
+    name: 'IconSvg',
+    props: {
+        type: {
+            type: String,
+            required: true,
+        },
     },
-  },
-};
+}
 </script>
 
 <style scoped>

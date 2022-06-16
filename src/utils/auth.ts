@@ -1,8 +1,8 @@
 // import Cookies from "js-cookie";
-import { addAsyncRouteByRole } from "@/router";
+import { addAsyncRouteByRole } from '@/router'
 
-const Key1 = "application_factory_token";
-const Key2 = "application_factory_userInfo";
+const Key1 = 'application_factory_token'
+const Key2 = 'application_factory_userInfo'
 
 // export function getToken() {
 //   return Cookies.get(Key1);
@@ -16,27 +16,27 @@ const Key2 = "application_factory_userInfo";
 //   return Cookies.remove(Key1);
 // }
 export function getToken() {
-  return localStorage.getItem(Key1);
+    return localStorage.getItem(Key1)
 }
 
 export function setToken(token: string) {
-  return localStorage.setItem(Key1, token);
+    return localStorage.setItem(Key1, token)
 }
 
 export function removeToken() {
-  return localStorage.removeItem(Key1);
+    return localStorage.removeItem(Key1)
 }
 
 export function getUserInfo() {
-  let val = localStorage.getItem(Key2);
-  return JSON.parse(val);
+    let val = localStorage.getItem(Key2)
+    return JSON.parse(val)
 }
 
 export function removeUserInfo() {
-  // 复原 动态新增路由表标志位
-  window.asyncRouteAlreadyAddedFlag = false;
+    // 复原 动态新增路由表标志位
+    window.asyncRouteAlreadyAddedFlag = false
 
-  return localStorage.removeItem(Key2);
+    return localStorage.removeItem(Key2)
 }
 
 // export function setUserInfo(userInfo) {
@@ -66,25 +66,25 @@ export function removeUserInfo() {
 // }
 
 export function setUserInfo(userInfo: any, roles = []) {
-  let userRole = {
-    isAdmin: false,
-    isTenant: false,
+    let userRole = {
+        isAdmin: false,
+        isTenant: false,
     // isNormalUser: false,
-  };
+    }
 
-  if (userInfo.username === "admin") {
-    userRole.isAdmin = true;
-  } else if (userInfo.relTenantIds) {
-    userRole.isTenant = true;
-  }
-  //  else {
-  //   userRole.isNormalUser = true;
-  // }
+    if (userInfo.username === 'admin') {
+        userRole.isAdmin = true
+    } else if (userInfo.relTenantIds) {
+        userRole.isTenant = true
+    }
+    //  else {
+    //   userRole.isNormalUser = true;
+    // }
 
-  userInfo = {
-    ...userInfo,
-    ...userRole,
-    roleCodeArr: roles.map((x) => x.roleCode),
+    userInfo = {
+        ...userInfo,
+        ...userRole,
+        roleCodeArr: roles.map((x) => x.roleCode),
 
     // ◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️ 关于roleCodeArr中的角色code的描述 ◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️
     // 【共有】角色
@@ -102,11 +102,11 @@ export function setUserInfo(userInfo: any, roles = []) {
     // 【应用管理子系统】的角色
     // "gov_db_admin":       "大数据局管理员",
     //
-  };
+    }
 
-  userInfo = JSON.stringify(userInfo);
-  localStorage.setItem(Key2, userInfo);
+    userInfo = JSON.stringify(userInfo)
+    localStorage.setItem(Key2, userInfo)
 
-  // 动态新增路由表（根据角色）
-  addAsyncRouteByRole();
+    // 动态新增路由表（根据角色）
+    addAsyncRouteByRole()
 }
